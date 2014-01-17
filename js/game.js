@@ -13,12 +13,8 @@ function init() {
 	// Initialise keyboard controls
 	keys = new Keys();
 
+	// Initialise frames array
 	frames = [];
-
-	
-	
-
-
 
 	// Start listening for events
 	setEventHandlers();
@@ -74,9 +70,29 @@ function update() {
 	for(var i=0; i<frames.length; i++) {
 		frames[i].update(keys);
 	}
-	if (keys.space) {
+
+	if (keys.space && frames.length < 6) {
 		frames.push(new Frame("frame" + frames.length));
-		switch(frames.length) {
+		updateFramesPosition();
+		keys.space = false;
+	}
+};
+
+
+/**************************************************
+** GAME DRAW
+**************************************************/
+function draw() {
+	for(var i=0; i<frames.length; i++) {
+		frames[i].draw();
+	}
+};
+
+/**************************************************
+** UPDATE EACH FRAME POSITION
+**************************************************/
+function updateFramesPosition() {
+	switch(frames.length) {
 		case 1:
 			frames[0].changePosition(0,0,window.innerWidth, window.innerHeight);
 			break;
@@ -110,21 +126,5 @@ function update() {
 			frames[4].changePosition(window.innerWidth/3,0,window.innerWidth/3, window.innerHeight/2);
 			frames[5].changePosition(window.innerWidth/3,window.innerHeight/2,window.innerWidth/3, window.innerHeight/2);
 			break;
-		case 7:
-			break;
-		case 8:
-			break;
-		}
-		keys.space = false;
-		}
-};
-
-
-/**************************************************
-** GAME DRAW
-**************************************************/
-function draw() {
-	for(var i=0; i<frames.length; i++) {
-		frames[i].draw();
 	}
-};
+}
