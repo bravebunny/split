@@ -20,11 +20,9 @@ var Frame = function(id) {
 		canvas.style.border   = "1px solid";
 		document.body.appendChild(canvas);
 
-		// Calculate a random start position for the local player
-		// The minus 5 (half a player size) stops the player being
-		// placed right on the egde of the screen
-		var startX = Math.round(Math.random()*(canvas.width-5)),
-			startY = Math.round(Math.random()*(canvas.height-5));
+		// Set the initial position
+		var startX = 10,
+			startY = 10;
 
 		// Initialise the local player
 		localPlayer = new Player(startX, startY);

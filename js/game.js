@@ -14,11 +14,11 @@ function init() {
 	keys = new Keys();
 
 	frames = [];
-	frames.push(new Frame("sim"));
-	frames.push(new Frame("nao"));
 
-	frames[0].changePosition(0,0,window.innerWidth/2, window.innerHeight);
-	frames[1].changePosition(window.innerWidth/2,0,window.innerWidth/2, window.innerHeight);
+	
+	
+
+
 
 	// Start listening for events
 	setEventHandlers();
@@ -74,6 +74,49 @@ function update() {
 	for(var i=0; i<frames.length; i++) {
 		frames[i].update(keys);
 	}
+	if (keys.space) {
+		frames.push(new Frame("frame" + frames.length));
+		switch(frames.length) {
+		case 1:
+			frames[0].changePosition(0,0,window.innerWidth, window.innerHeight);
+			break;
+		case 2:
+			frames[0].changePosition(0,0,window.innerWidth/2, window.innerHeight);
+			frames[1].changePosition(window.innerWidth/2,0,window.innerWidth/2, window.innerHeight);
+			break;
+		case 3:
+			frames[0].changePosition(0,0,window.innerWidth/2, window.innerHeight/2);
+			frames[1].changePosition(window.innerWidth/2,0,window.innerWidth/2, window.innerHeight/2);
+			frames[2].changePosition(window.innerWidth/4,window.innerHeight/2,window.innerWidth/2, window.innerHeight/2);
+			break;
+		case 4:
+			frames[0].changePosition(0,0,window.innerWidth/2, window.innerHeight/2);
+			frames[1].changePosition(window.innerWidth/2,0,window.innerWidth/2, window.innerHeight/2);
+			frames[2].changePosition(0,window.innerHeight/2,window.innerWidth/2, window.innerHeight);
+			frames[3].changePosition(window.innerWidth/2,window.innerHeight/2,window.innerWidth/2, window.innerHeight/2);
+			break;
+		case 5:
+			frames[0].changePosition(0,0,window.innerWidth/3, window.innerHeight/2);
+			frames[1].changePosition(0,window.innerHeight/2,window.innerWidth/3, window.innerHeight/2);
+			frames[2].changePosition(2*window.innerWidth/3,0,window.innerWidth/3, window.innerHeight/2);
+			frames[3].changePosition(2*window.innerWidth/3,window.innerHeight/2,window.innerWidth/3, window.innerHeight/2);
+			frames[4].changePosition(window.innerWidth/3,window.innerHeight/4,window.innerWidth/3, window.innerHeight/2);
+			break;
+		case 6:
+			frames[0].changePosition(0,0,window.innerWidth/3, window.innerHeight/2);
+			frames[1].changePosition(0,window.innerHeight/2,window.innerWidth/3, window.innerHeight/2);
+			frames[2].changePosition(2*window.innerWidth/3,0,window.innerWidth/3, window.innerHeight/2);
+			frames[3].changePosition(2*window.innerWidth/3,window.innerHeight/2,window.innerWidth/3, window.innerHeight/2);
+			frames[4].changePosition(window.innerWidth/3,0,window.innerWidth/3, window.innerHeight/2);
+			frames[5].changePosition(window.innerWidth/3,window.innerHeight/2,window.innerWidth/3, window.innerHeight/2);
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		}
+		keys.space = false;
+		}
 };
 
 
