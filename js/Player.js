@@ -25,7 +25,7 @@ var Player = function(stage,startX, startY, theme) {
 
 	var update = function(newX, newY) {
 		x = newX;
-		y = newY*scale;
+		y = newY*(scale);
 	};
 
 	var draw = function() {
@@ -36,11 +36,10 @@ var Player = function(stage,startX, startY, theme) {
 	    image.rotation += 0.1;
 	};
 	
-	var changeSize = function(scale) {
-		image.scale.x = scale;
-		image.scale.y = scale;
-		scale = scale;
-		
+	var changeSize = function(newScale) {
+		image.scale.x = newScale;
+		image.scale.y = newScale;
+		scale = newScale;
 	};
 
 	return {
