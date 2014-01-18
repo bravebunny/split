@@ -8,7 +8,7 @@ var Frame = function(id) {
 		localPlayer;	// Local player
 
 	var init = function() {
-		stage = new PIXI.Stage(0xEEFFFF);
+		stage = new PIXI.Stage(0x002633);
 		renderer = PIXI.autoDetectRenderer(320, 240);
 		renderer.view.style.position = "absolute";
 		renderer.view.style.top="0px";
