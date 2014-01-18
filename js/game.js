@@ -3,6 +3,9 @@
 **************************************************/
 var frames,			// Frames
 	keys,			// Keyboard input
+	x,
+	y,
+	moveAmount = 5,
 	localPlayer;	// Local player
 
 
@@ -15,6 +18,8 @@ function init() {
 
 	// Initialise frames array
 	frames = [];
+
+	x = 0, y = 0;
 
 	// Start listening for events
 	setEventHandlers();
@@ -66,8 +71,10 @@ function animate() {
 ** GAME UPDATE
 **************************************************/
 function update() {
+	updatePosition();
+
 	for(var i=0; i<frames.length; i++) {
-		frames[i].update(keys);
+		frames[i].update(x,y);
 	}
 
 	if (keys.space && frames.length < 6) {
@@ -126,4 +133,24 @@ function updateFramesPosition() {
 			frames[5].changePosition(window.innerWidth/3,window.innerHeight/2,window.innerWidth/3, window.innerHeight/2);
 			break;
 	}
+}
+
+
+/**************************************************
+** UPDATE POSITION
+**************************************************/
+function updatePosition() {
+	// Up key takes priority over down
+	if (keys.up) {
+		y -= moveAmount;
+	} else if (keys.down) {
+		y += moveAmount;
+	};
+
+	// Left key takes priority over right
+	if (keys.left) {
+		x -= moveAmount;
+	} else if (keys.right) {
+		x += moveAmount;
+	};
 }

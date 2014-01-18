@@ -25,13 +25,9 @@ var Background = function(stage, w, h) {
 		stage.addChild(tilingSprite);
 	}(stage);
 
-	var update = function(keys) {
-		// Left key takes priority over right
-		if (keys.left) {
-			x += moveAmount;
-		} else if (keys.right) {
-			x -= moveAmount;
-		};
+	var update = function(newX, newY) {
+		x = newX;
+		y = newY;
 	};
 
 	var draw = function() {

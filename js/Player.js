@@ -20,13 +20,9 @@ var Player = function(stage,startX, startY) {
 		stage.addChild(bunny);
 	}(stage);
 
-	var update = function(keys) {
-		// Up key takes priority over down
-		if (keys.up) {
-			y -= moveAmount;
-		} else if (keys.down) {
-			y += moveAmount;
-		};
+	var update = function(newX, newY) {
+		x = newX;
+		y = newY;
 	};
 
 	var draw = function() {

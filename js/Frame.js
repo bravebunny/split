@@ -36,9 +36,9 @@ var Frame = function(id) {
 		background.changeSize(width, height);
 	}
 
-	var update = function(keys) {
-		background.update(keys);
-		localPlayer.update(keys);
+	var update = function(newX, newY) {
+		background.update(-newX, newY);
+		localPlayer.update(100, newY);
 	};
 
 	var draw = function() {
