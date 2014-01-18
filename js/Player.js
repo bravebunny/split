@@ -1,40 +1,51 @@
 /**************************************************
 ** GAME PLAYER CLASS
 **************************************************/
-var Player = function(stage,startX, startY) {
+var Player = function(stage,startX, startY, theme) {
 	var x = startX,
 		y = startY,
+		theme = theme,
 		moveAmount = 5,
 		texture,
-		bunny;
+		image,
+		scale = 1;
+		
 
 	var init = function(stage) {
-		texture = PIXI.Texture.fromImage("assets/bunny.png");
+		texture = PIXI.Texture.fromImage("assets/player" + theme + ".png");
 		// create a new Sprite using the texture
-		bunny = new PIXI.Sprite(texture);
+		image = new PIXI.Sprite(texture);
 
 		// center the sprites anchor point
-		bunny.anchor.x = 0.5;
-		bunny.anchor.y = 0.5;
+		image.anchor.x = 0.5;
+		image.anchor.y = 0.5;
 
-		stage.addChild(bunny);
+		stage.addChild(image);
 	}(stage);
 
 	var update = function(newX, newY) {
 		x = newX;
-		y = newY;
+		y = newY*scale;
 	};
 
 	var draw = function() {
-		bunny.position.x = x;
-		bunny.position.y = y;
+		image.position.x = x;
+		image.position.y = y;
 
 	    // just for fun, lets rotate mr rabbit a little
-	    bunny.rotation += 0.1;
+	    image.rotation += 0.1;
+	};
+	
+	var changeSize = function(scale) {
+		image.scale.x = scale;
+		image.scale.y = scale;
+		scale = scale;
+		
 	};
 
 	return {
 		update: update,
-		draw: draw
+		draw: draw,
+		changeSize : changeSize
 	}
 };

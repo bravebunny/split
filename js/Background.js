@@ -1,17 +1,18 @@
 /**************************************************
 ** GAME BACKGROUND CLASS
 **************************************************/
-var Background = function(stage, w, h) {
+var Background = function(stage, w, h, theme) {
 	var x = 0,
 		moveAmount = 5,
 		width = w,
 		height = h,
 		originalHeight = 532,
 		texture,
-		tilingSprite;
+		tilingSprite,
+		theme = theme;
 
 	var init = function(stage) {
-		texture = PIXI.Texture.fromImage("assets/city.png");
+		texture = PIXI.Texture.fromImage("assets/background" + theme + ".png");
 		// create a tiling sprite..
 		// requires a texture, width and height
 		// to work in webGL the texture size must be a power of two
@@ -42,6 +43,8 @@ var Background = function(stage, w, h) {
 
 		tilingSprite.tileScale.x = scale;
 		tilingSprite.tileScale.y = scale;
+		
+		return scale;
 	}
 
 	return {

@@ -5,7 +5,8 @@ var Frame = function(id) {
 	var stage,			// PIXI Stage element
 		renderer,		// PIXI Renderer
 		background,
-		localPlayer;	// Local player
+		localPlayer,	// Local player
+		theme;
 
 	var init = function() {
 		stage = new PIXI.Stage(0x002633);
@@ -14,6 +15,7 @@ var Frame = function(id) {
 		renderer.view.style.top="0px";
 		renderer.view.style.left="0px";
 		renderer.view.style.border   = "1px solid";
+		
 
 		document.body.appendChild(renderer.view);
 
@@ -21,11 +23,13 @@ var Frame = function(id) {
 		var startX = 100,
 			startY = 10;
 
+		theme = getRandomInt(0, 1);
+			
 		// Initialise the background
-		background = new Background(stage, 320, 240);
+		background = new Background(stage, 320, 240, theme);
 
 		// Initialise the local player
-		localPlayer = new Player(stage, startX, startY);
+		localPlayer = new Player(stage, startX, startY, theme);
 	}();
 
 	var changePosition = function(x,y,width,height) {
@@ -33,7 +37,7 @@ var Frame = function(id) {
 		renderer.view.style.top=y+"px";
 		renderer.view.style.left=x+"px";
 
-		background.changeSize(width, height);
+		localPlayer.changeSize(background.changeSize(width, height));
 	}
 
 	var update = function(newX, newY) {
