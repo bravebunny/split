@@ -4,6 +4,7 @@
 var Frame = function(id) {
 	var stage,			// PIXI Stage element
 		renderer,		// PIXI Renderer
+		background,
 		localPlayer;	// Local player
 
 	var init = function() {
@@ -17,8 +18,11 @@ var Frame = function(id) {
 		document.body.appendChild(renderer.view);
 
 		// Set the initial position
-		var startX = 10,
+		var startX = 100,
 			startY = 10;
+
+		// Initialise the background
+		background = new Background(stage, 320, 240);
 
 		// Initialise the local player
 		localPlayer = new Player(stage, startX, startY);
@@ -28,15 +32,18 @@ var Frame = function(id) {
 		renderer.resize(width, height);
 		renderer.view.style.top=y+"px";
 		renderer.view.style.left=x+"px";
+
+		background.changeSize(width, height);
 	}
 
 	var update = function(keys) {
+		background.update(keys);
 		localPlayer.update(keys);
 	};
 
 	var draw = function() {
-		// Wipe the canvas clean
-		//ctx.clearRect(0, 0, canvas.width, canvas.height);
+		// Draw background
+		background.draw();
 
 		// Draw the local player
 		localPlayer.draw();

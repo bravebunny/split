@@ -46,8 +46,7 @@ function onKeyup(e) {
 // Browser window resize
 function onResize(e) {
 	// Maximise the canvas
-	//canvas.width = window.innerWidth;
-	//canvas.height = window.innerHeight;
+	updateFramesPosition();
 };
 
 
@@ -108,7 +107,7 @@ function updateFramesPosition() {
 		case 4:
 			frames[0].changePosition(0,0,window.innerWidth/2, window.innerHeight/2);
 			frames[1].changePosition(window.innerWidth/2,0,window.innerWidth/2, window.innerHeight/2);
-			frames[2].changePosition(0,window.innerHeight/2,window.innerWidth/2, window.innerHeight);
+			frames[2].changePosition(0,window.innerHeight/2,window.innerWidth/2, window.innerHeight/2);
 			frames[3].changePosition(window.innerWidth/2,window.innerHeight/2,window.innerWidth/2, window.innerHeight/2);
 			break;
 		case 5:

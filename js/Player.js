@@ -27,13 +27,6 @@ var Player = function(stage,startX, startY) {
 		} else if (keys.down) {
 			y += moveAmount;
 		};
-
-		// Left key takes priority over right
-		if (keys.left) {
-			x -= moveAmount;
-		} else if (keys.right) {
-			x += moveAmount;
-		};
 	};
 
 	var draw = function() {
