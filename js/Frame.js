@@ -45,12 +45,12 @@ var Frame = function(id) {
 		localPlayer.update(100, newY);
 	};
 
-	var draw = function() {
+	var draw = function(time, direction) {
 		// Draw background
 		background.draw();
 
 		// Draw the local player
-		localPlayer.draw();
+		localPlayer.draw(time, direction);
 		
 		renderer.render(stage);
 	};

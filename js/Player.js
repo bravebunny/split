@@ -7,38 +7,56 @@ var Player = function(stage,startX, startY, theme) {
 		theme = theme,
 		moveAmount = 5,
 		texture,
-		image,
-		scale = 1;
+		leftMovie,
+		rightMovie,
+		direction = "right";
+		scale = 1
 		
 
 	var init = function(stage) {
-		texture = PIXI.Texture.fromImage("assets/player" + theme + ".png");
-		// create a new Sprite using the texture
-		image = new PIXI.Sprite(texture);
+		leftMovie = new PIXI.MovieClip(llamaLeftFrames);
+		rightMovie = new PIXI.MovieClip(llamaRightFrames);
 
-		// center the sprites anchor point
-		image.anchor.x = 0.5;
-		image.anchor.y = 0.5;
+		leftMovie.anchor.x = leftMovie.anchor.y =  0.5//1;
+		leftMovie.play();
+		leftMovie.animationSpeed = 0.1;
+		stage.addChild(leftMovie);
 
-		stage.addChild(image);
+		rightMovie.anchor.x = rightMovie.anchor.y =  0.5//1;
+		rightMovie.play();
+		rightMovie.animationSpeed = 0.1;
+		stage.addChild(rightMovie);
 	}(stage);
 
 	var update = function(newX, newY) {
-		x = newX;
-		y = newY*(scale);
+		x = newX*scale;
+		y = newY*scale;
 	};
 
-	var draw = function() {
-		image.position.x = x;
-		image.position.y = y;
+	var draw = function(time, direction) {
+		var movie;
+		if(direction == "left") {
+			movie = leftMovie;
 
-	    // just for fun, lets rotate mr rabbit a little
-	    image.rotation += 0.1;
+			rightMovie.position.y = -100;
+		} else {
+			movie = rightMovie;
+
+			leftMovie.position.y = -100;
+		}
+		stage.addChild(movie);
+
+		movie.position.x = x;
+		movie.position.y = y;
+
+	  // just for fun, lets rotate mr rabbit a little
+	  //image.rotation += 0.1;
+
+	  movie.scale.x = scale;
+		movie.scale.y = scale;
 	};
 	
 	var changeSize = function(newScale) {
-		image.scale.x = newScale;
-		image.scale.y = newScale;
 		scale = newScale;
 	};
 
