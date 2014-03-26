@@ -9,23 +9,31 @@ var Player = function(stage,startX, startY, theme) {
 		texture,
 		leftMovie,
 		rightMovie,
-		direction = "right";
-		scale = 1
-		
+		spitMovie,
+		jumpMovie,
+		slideMovie,
+		direction = "right",
+		scale = 1;
+
+	var initMovie = function(movie) {
+		movie.anchor.x = movie.anchor.y =  0.5//1;
+		movie.play();
+		movie.animationSpeed = 0.1;
+		stage.addChild(movie);
+	}		
 
 	var init = function(stage) {
 		leftMovie = new PIXI.MovieClip(llamaLeftFrames);
 		rightMovie = new PIXI.MovieClip(llamaRightFrames);
+		jumpMovie = new PIXI.MovieClip(llamaJumpFrames);
+		spitMovie = new PIXI.MovieClip(llamaSpitFrames);
+		slideMovie = new PIXI.MovieClip(llamaSlideFrames);
 
-		leftMovie.anchor.x = leftMovie.anchor.y =  0.5//1;
-		leftMovie.play();
-		leftMovie.animationSpeed = 0.1;
-		stage.addChild(leftMovie);
-
-		rightMovie.anchor.x = rightMovie.anchor.y =  0.5//1;
-		rightMovie.play();
-		rightMovie.animationSpeed = 0.1;
-		stage.addChild(rightMovie);
+		initMovie(leftMovie);
+		initMovie(rightMovie);
+		initMovie(jumpMovie);
+		initMovie(spitMovie);
+		initMovie(slideMovie);
 	}(stage);
 
 	var update = function(newX, newY) {
@@ -35,14 +43,23 @@ var Player = function(stage,startX, startY, theme) {
 
 	var draw = function(time, direction) {
 		var movie;
-		if(direction == "left") {
-			movie = leftMovie;
 
-			rightMovie.position.y = -100;
+		rightMovie.position.y = -100;		
+		leftMovie.position.y = -100;
+		jumpMovie.position.y = -100;
+		spitMovie.position.y = -100;
+		slideMovie.position.y = -100;
+		
+		if (jumpTicks < jumpTime){
+			movie = jumpMovie;
+		} else if (spitTicks < spitTime){
+			movie = spitMovie;
+		} else if (slideTicks < slideTime){
+			movie = slideMovie;
+		} else if(direction == "left") {
+			movie = leftMovie;
 		} else {
 			movie = rightMovie;
-
-			leftMovie.position.y = -100;
 		}
 		stage.addChild(movie);
 

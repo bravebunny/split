@@ -18,8 +18,17 @@ var jumpTime = 500,
 		jumpAcceleration = 0.5,
 		baseY = groundLevel;
 
+var spitTicks = 500,
+		spitTime = 200;
+
+var slideTicks = 500,
+		slideTime = 200;
+
 var llamaLeftFrames = [],
-		llamaRightFrames = [];
+		llamaRightFrames = [],
+		llamaSpitFrames = [],
+		llamaJumpFrames = [],
+		llamaSlideFrames = [];
 
 
 /**************************************************
@@ -87,6 +96,16 @@ function onAssetsLoaded()
 		llamaLeftFrames.push(PIXI.Texture.fromFrame("llamaLeft" + i + ".png"));
 		llamaRightFrames.push(PIXI.Texture.fromFrame("llamaRight" + i + ".png"));
 	};
+	for (var i = 1; i < 3; i++) {
+		llamaJumpFrames.push(PIXI.Texture.fromFrame("llamaJump" + i + ".png"));
+	};
+	for (var i = 1; i < 13; i++) {
+		llamaSlideFrames.push(PIXI.Texture.fromFrame("llamaSlide" + i + ".png"));
+	};
+	for (var i = 1; i < 5; i++) {
+		llamaSpitFrames.push(PIXI.Texture.fromFrame("llamaSpit" + i + ".png"));
+	};
+
 
 	// Push the first frame
 	frames.push(new Frame("frame" + frames.length));
@@ -127,13 +146,16 @@ function update() {
 	if (jumpTicks < jumpTime){
 		if (y <= baseY){
   		y = (baseY - (jumpSpeed * jumpTicks) + (0.5 * jumpAcceleration * jumpTicks * jumpTicks))
-  		jumpTicks++;
 		}
 		else{
   		y = baseY
   		jumpTicks = jumpTime;
 		}
 	}
+
+	jumpTicks++;
+	spitTicks++;
+	slideTicks++;
 
 	time += 1;
 };
@@ -195,22 +217,25 @@ function updateFramesPosition() {
 **************************************************/
 function updatePosition() {
 	// Up key takes priority over down
-	if (keys.up) {
-		//y -= moveAmount;
-		if (jumpTicks >= jumpTime){
+	if (keys.up && jumpTicks >= jumpTime){
 			jumpTicks = 0
 			baseY = y;
-		}
-	} else if (keys.down && y<groundLevel) {
-		//y += moveAmount;
+	} else if (keys.down && slideTicks >= slideTime) {
+		slideTicks = 0;
+	} else if (keys.right && spitTicks >= spitTime) {
+		spitTicks = 0;
 	};
 
 	// Left key takes priority over right
+	/*
 	if (keys.left) {
 		x -= moveAmount;
 		direction = "left";
 	} else if (keys.right) {
 		x += moveAmount;
 		direction = "right";
-	};
+	};*/
+
+	x += moveAmount;
+	direction = "right";
 }
