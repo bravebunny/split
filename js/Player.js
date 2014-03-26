@@ -16,7 +16,7 @@ var Player = function(stage,startX, startY, theme) {
 		scale = 1;
 
 	var initMovie = function(movie) {
-		movie.anchor.x = movie.anchor.y =  0.5//1;
+		movie.anchor.x = movie.anchor.y =  0.5;//1;
 		movie.play();
 		movie.animationSpeed = 0.1;
 		stage.addChild(movie);
@@ -55,6 +55,7 @@ var Player = function(stage,startX, startY, theme) {
 		} else if (spitTicks < spitTime){
 			movie = spitMovie;
 		} else if (slideTicks < slideTime){
+			if(!slideMovie.playing) slideMovie.play();
 			movie = slideMovie;
 		} else if(direction == "left") {
 			movie = leftMovie;
@@ -62,6 +63,10 @@ var Player = function(stage,startX, startY, theme) {
 			movie = rightMovie;
 		}
 		stage.addChild(movie);
+
+		if (slideTicks >= slideTime){
+			slideMovie.stop();
+		}
 
 		movie.position.x = x;
 		movie.position.y = y;

@@ -19,10 +19,10 @@ var jumpTime = 500,
 		baseY = groundLevel;
 
 var spitTicks = 500,
-		spitTime = 200;
+		spitTime = 60;
 
 var slideTicks = 500,
-		slideTime = 200;
+		slideTime = 120;
 
 var llamaLeftFrames = [],
 		llamaRightFrames = [],
@@ -236,6 +236,9 @@ function updatePosition() {
 		direction = "right";
 	};*/
 
-	x += moveAmount;
+	if (spitTicks >= spitTime) {
+		x += moveAmount;
+	};
+
 	direction = "right";
 }
