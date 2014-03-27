@@ -6,6 +6,7 @@ var Frame = function(id) {
 		renderer,		// PIXI Renderer
 		background,
 		localPlayer,	// Local player
+		lover,
 		theme;
 
 	var init = function() {
@@ -15,7 +16,7 @@ var Frame = function(id) {
 		renderer.view.style.top="0px";
 		renderer.view.style.left="0px";
 		renderer.view.style.border   = "1px solid";
-		
+
 
 		document.body.appendChild(renderer.view);
 
@@ -24,12 +25,14 @@ var Frame = function(id) {
 			startY = 10;
 
 		theme = getRandomInt(1, 6);
-			
+
 		// Initialise the background
 		background = new Background(stage, 320, 240, theme);
 
 		// Initialise the local player
 		localPlayer = new Player(stage, startX, startY, theme);
+		console.log(x);
+		lover = new Lover(stage, x, startY, theme);
 	}();
 
 	var changePosition = function(x,y,width,height) {
@@ -37,12 +40,15 @@ var Frame = function(id) {
 		renderer.view.style.top=y+"px";
 		renderer.view.style.left=x+"px";
 
-		localPlayer.changeSize(background.changeSize(width, height));
+		var newSize = background.changeSize(width, height);
+		localPlayer.changeSize(newSize);
+		lover.changeSize(newSize);
 	}
 
 	var update = function(newX, newY) {
 		background.update(-newX, newY);
 		localPlayer.update(100, newY);
+		lover.update(newX, groundLevel);
 	};
 
 	var draw = function(time, direction) {
@@ -51,7 +57,8 @@ var Frame = function(id) {
 
 		// Draw the local player
 		localPlayer.draw(time, direction);
-		
+		lover.draw(time, direction);
+
 		renderer.render(stage);
 	};
 

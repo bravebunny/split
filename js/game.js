@@ -10,7 +10,8 @@ var loader,
 	moveAmount = 5,
 	groundLevel = 330,
 	direction = "right",
-	localPlayer;	// Local player
+	localPlayer,	// Local player
+	canCreateFrame = true;
 
 var jumpTime = 500,
 		jumpTicks = 500,
@@ -28,7 +29,8 @@ var llamaLeftFrames = [],
 		llamaRightFrames = [],
 		llamaSpitFrames = [],
 		llamaJumpFrames = [],
-		llamaSlideFrames = [];
+		llamaSlideFrames = [],
+		llamaLoverFrames = [];
 
 
 /**************************************************
@@ -105,6 +107,9 @@ function onAssetsLoaded()
 	for (var i = 1; i < 5; i++) {
 		llamaSpitFrames.push(PIXI.Texture.fromFrame("llamaSpit" + i + ".png"));
 	};
+	for (var i = 1; i < 5; i++) {
+		llamaLoverFrames.push(PIXI.Texture.fromFrame("llamaLover" + i + ".png"));
+	};
 
 
 	// Push the first frame
@@ -135,12 +140,6 @@ function update() {
 
 	for(var i=0; i<frames.length; i++) {
 		frames[i].update(x,y,time);
-	}
-
-	if (keys.space && frames.length < 6) {
-		frames.push(new Frame("frame" + frames.length));
-		updateFramesPosition();
-		keys.space = false;
 	}
 
 	if (jumpTicks < jumpTime){
@@ -236,9 +235,17 @@ function updatePosition() {
 		direction = "right";
 	};*/
 
-	if (spitTicks >= spitTime) {
+	//if (spitTicks >= spitTime) {
 		x += moveAmount;
-	};
+	//};
 
 	direction = "right";
+}
+
+function newFrame() {
+	if(canCreateFrame) {
+		frames.push(new Frame("frame" + frames.length));
+		setTimeout(function() {canCreateFrame = true}, 2000);
+	}
+	updateFramesPosition();
 }
