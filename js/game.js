@@ -243,7 +243,7 @@ function updatePosition() {
 }
 
 function newFrame() {
-	if(canCreateFrame) {
+	if(canCreateFrame && frames.length < 6) {
 		frames.push(new Frame("frame" + frames.length));
 		setTimeout(function() {canCreateFrame = true}, 2000);
 	}
