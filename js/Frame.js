@@ -23,7 +23,7 @@ var Frame = function(id) {
 		var startX = 100,
 			startY = 10;
 
-		theme = getRandomInt(0, 1);
+		theme = getRandomInt(1, 6);
 			
 		// Initialise the background
 		background = new Background(stage, 320, 240, theme);
