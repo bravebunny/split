@@ -8,14 +8,14 @@ var loader,
 	y,
 	time = 0,
 	moveAmount = 5,
-	groundLevel = 450,
+	groundLevel = 330,
 	direction = "right",
 	localPlayer;	// Local player
 
 var jumpTime = 500,
 		jumpTicks = 500,
-		jumpSpeed = 10,
-		jumpAcceleration = 0.5,
+		jumpSpeed = 20,
+		jumpAcceleration = 0.8,
 		baseY = groundLevel;
 
 var spitTicks = 500,
