@@ -12,7 +12,8 @@ var Background = function(stage, w, h, theme) {
 		theme = theme;
 
 	var init = function(stage) {
-		texture = PIXI.Texture.fromImage("assets/background" + theme + ".png");
+		//texture = PIXI.Texture.fromImage("assets/background" + theme + ".png");
+		texture = PIXI.Texture.fromImage("assets/peru.jpg");
 		// create a tiling sprite..
 		// requires a texture, width and height
 		// to work in webGL the texture size must be a power of two
@@ -43,7 +44,7 @@ var Background = function(stage, w, h, theme) {
 
 		tilingSprite.tileScale.x = scale;
 		tilingSprite.tileScale.y = scale;
-		
+
 		return scale;
 	}
 
