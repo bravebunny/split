@@ -4,7 +4,7 @@
 var loader,
 	frames,			// Frames
 	keys,			// Keyboard input
-	x,
+	realX,
 	y,
 	time = 0,
 	moveAmount = 5,
@@ -43,7 +43,7 @@ function init() {
 	// Initialise frames array
 	frames = [];
 
-	x = 0, y = groundLevel;
+	realX = 0, y = groundLevel;
 
 	// Start listening for events
 	setEventHandlers();
@@ -139,7 +139,7 @@ function update() {
 	updatePosition();
 
 	for(var i=0; i<frames.length; i++) {
-		frames[i].update(x,y,time);
+		frames[i].update(realX,y,time);
 	}
 
 	if (jumpTicks < jumpTime){
@@ -225,19 +225,7 @@ function updatePosition() {
 		spitTicks = 0;
 	};
 
-	// Left key takes priority over right
-	/*
-	if (keys.left) {
-		x -= moveAmount;
-		direction = "left";
-	} else if (keys.right) {
-		x += moveAmount;
-		direction = "right";
-	};*/
-
-	//if (spitTicks >= spitTime) {
-		x += moveAmount;
-	//};
+	realX += moveAmount;
 
 	direction = "right";
 }

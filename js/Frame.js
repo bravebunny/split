@@ -17,7 +17,6 @@ var Frame = function(id) {
 		renderer.view.style.left="0px";
 		renderer.view.style.border   = "1px solid";
 
-
 		document.body.appendChild(renderer.view);
 
 		// Set the initial position
@@ -31,8 +30,7 @@ var Frame = function(id) {
 
 		// Initialise the local player
 		localPlayer = new Player(stage, startX, startY, theme);
-		console.log(x);
-		lover = new Lover(stage, x, startY, theme);
+		lover = new Lover(stage, realX, startY, theme);
 	}();
 
 	var changePosition = function(x,y,width,height) {
@@ -46,7 +44,7 @@ var Frame = function(id) {
 	}
 
 	var update = function(newX, newY) {
-		background.update(-newX, newY);
+		background.update(newX, newY);
 		localPlayer.update(100, newY);
 		lover.update(newX, groundLevel);
 	};

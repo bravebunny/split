@@ -13,6 +13,8 @@ var Player = function(stage,startX, startY, theme) {
 		jumpMovie,
 		slideMovie,
 		direction = "right",
+		age = 0.5,
+		growthSpeed = 0.0025;
 		scale = 1;
 
 	var initMovie = function(movie) {
@@ -38,7 +40,10 @@ var Player = function(stage,startX, startY, theme) {
 
 	var update = function(newX, newY) {
 		x = newX*scale;
-		y = newY*scale;
+		y = (newY+(1-age)*64)*scale;
+		if(age < 1) {
+			age += growthSpeed;
+		}
 	};
 
 	var draw = function(time, direction) {
@@ -74,8 +79,8 @@ var Player = function(stage,startX, startY, theme) {
 	  // just for fun, lets rotate mr rabbit a little
 	  //image.rotation += 0.1;
 
-	  movie.scale.x = scale*2;
-		movie.scale.y = scale*2;
+	  movie.scale.x = scale*2*age;
+		movie.scale.y = scale*2*age;
 	};
 
 	var changeSize = function(newScale) {

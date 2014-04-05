@@ -9,6 +9,7 @@ var Background = function(stage, w, h, theme) {
 		originalHeight = 532,
 		texture,
 		tilingSprite,
+		scale = 1,
 		theme = theme;
 
 	var init = function(stage) {
@@ -28,7 +29,7 @@ var Background = function(stage, w, h, theme) {
 	}(stage);
 
 	var update = function(newX, newY) {
-		x = newX;
+		x = -newX;
 		y = newY;
 	};
 
@@ -37,7 +38,7 @@ var Background = function(stage, w, h, theme) {
 	};
 
 	var changeSize = function(w, h) {
-		var scale = h/originalHeight;
+		scale = h/originalHeight;
 
 		tilingSprite.width = w;
 		tilingSprite.height = h;

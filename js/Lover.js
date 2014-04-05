@@ -25,8 +25,8 @@ var Lover = function(stage,sX, startY, theme) {
 	}(stage);
 
 	var update = function(newX, newY) {
-		x = (100-(newX-startX));
-		x /= scale;
+		x = (100-(realX-startX)*scale);
+		//x /= scale;
 		y = newY*scale;
 
 		if(loved == false && x < 100) {
