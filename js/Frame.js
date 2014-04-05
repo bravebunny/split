@@ -1,16 +1,17 @@
 /**************************************************
 ** GAME FRAME CLASS
 **************************************************/
-var Frame = function(id) {
+var Frame = function(num) {
 	var stage,			// PIXI Stage element
 		renderer,		// PIXI Renderer
 		background,
 		localPlayer,	// Local player
 		lover,
+		id = num,
 		theme;
 
 	var init = function() {
-		stage = new PIXI.Stage(0x002633);
+		stage = new PIXI.Stage(backgroundColors[id]);
 		renderer = PIXI.autoDetectRenderer(320, 240);
 		renderer.view.style.position = "absolute";
 		renderer.view.style.top="0px";

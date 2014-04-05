@@ -11,6 +11,7 @@ var loader,
 	groundLevel = 330,
 	direction = "right",
 	localPlayer,	// Local player
+	backgroundColors = [0xFF0000, 0xFFFF00, 0x00FF00, 0x00FFFF, 0x0000FF, 0xFF00FF],
 	canCreateFrame = true;
 
 var jumpTime = 500,
@@ -113,7 +114,7 @@ function onAssetsLoaded()
 
 
 	// Push the first frame
-	frames.push(new Frame("frame" + frames.length));
+	frames.push(new Frame(frames.length));
 	updateFramesPosition();
 
 	animate();
@@ -232,7 +233,7 @@ function updatePosition() {
 
 function newFrame() {
 	if(canCreateFrame && frames.length < 6) {
-		frames.push(new Frame("frame" + frames.length));
+		frames.push(new Frame(frames.length));
 		setTimeout(function() {canCreateFrame = true}, 2000);
 	}
 	updateFramesPosition();
