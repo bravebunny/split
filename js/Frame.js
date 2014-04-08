@@ -51,7 +51,7 @@ var Frame = function(num) {
 		background.update(newX, newY);
 		localPlayer.update(100, newY);
 		lover.update(newX, groundLevel);
-		rock.update(newX, groundLevel);
+		rock.update(newX, groundLevel, id);
 	};
 
 	var draw = function(time, direction) {
@@ -66,9 +66,14 @@ var Frame = function(num) {
 		renderer.render(stage);
 	};
 
+	var kill = function(){
+			document.body.removeChild(renderer.view);
+	}
+
 	return {
 		changePosition: changePosition,
 		update: update,
-		draw: draw
+		draw: draw,
+		kill: kill
 	}
 };

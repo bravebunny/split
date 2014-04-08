@@ -12,7 +12,8 @@ var loader,
 	direction = "right",
 	localPlayer,	// Local player
 	backgroundColors = [0xFF0000, 0xFFFF00, 0x00FF00, 0x00FFFF, 0x0000FF, 0xFF00FF],
-	canCreateFrame = true;
+	canCreateFrame = true,
+	canKillFrame = true;
 
 var jumpTime = 500,
 		jumpTicks = 500,
@@ -236,5 +237,18 @@ function newFrame() {
 		frames.push(new Frame(frames.length));
 		setTimeout(function() {canCreateFrame = true}, 2000);
 	}
+	updateFramesPosition();
+}
+
+function killFrame(id) {
+	if(canKillFrame && frames.length > 1) {
+		//frames.push(new Frame(frames.length));
+		frames[id].kill();
+
+		frames.splice(id,1);
+
+		setTimeout(function() {canKillFrame = true}, 2000);
+	}
+
 	updateFramesPosition();
 }

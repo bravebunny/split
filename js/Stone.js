@@ -8,6 +8,7 @@ var Stone = function(stage,sX, startY, theme) {
     theme = theme,
     texture,
     sprite,
+    killed = false,
     scale = 1;
 
   var init = function(stage) {
@@ -22,10 +23,15 @@ var Stone = function(stage,sX, startY, theme) {
 		stage.addChild(sprite);
   }(stage);
 
-  var update = function(newX, newY) {
+  var update = function(newX, newY, parentId) {
     x = (100-(realX-startX)*scale);
     //x /= scale;
     y = newY*scale;
+
+    if(killed == false && x < 100) {
+      killed=true;
+      killFrame(parentId);
+    }
   };
 
   var draw = function(time, direction) {
