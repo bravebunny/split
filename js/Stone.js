@@ -28,9 +28,11 @@ var Stone = function(stage,sX, startY, theme) {
     //x /= scale;
     y = newY*scale;
 
-    if(killed == false && x < 100) {
+    if(x < 100 && killed == false) {
+      if(jumpTicks >= jumpTime) {
+        killFrame(parentId);
+      }
       killed=true;
-      killFrame(parentId);
     }
   };
 

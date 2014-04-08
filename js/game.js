@@ -241,7 +241,7 @@ function newFrame() {
 }
 
 function killFrame(id) {
-	if(canKillFrame && frames.length > 1) {
+	if(canKillFrame && frames.length > 0) {
 		//frames.push(new Frame(frames.length));
 		frames[id].kill();
 
