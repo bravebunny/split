@@ -34,6 +34,9 @@ var Frame = function(num) {
 		localPlayer = new Player(stage, startX, startY, theme);
 		lover = new Lover(stage, realX, startY, theme);
 		rock = new Stone(stage, realX, startY, theme);
+
+		setInterval(function(){lover = new Lover(stage, realX, startY, theme);}, getRandomInt(5,15)*1000);
+		setInterval(function(){rock = new Stone(stage, realX, startY, theme);}, getRandomInt(5,8)*3000);
 	}();
 
 	var changePosition = function(x,y,width,height) {
