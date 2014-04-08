@@ -7,6 +7,7 @@ var Frame = function(num) {
 		background,
 		localPlayer,	// Local player
 		lover,
+		rock,
 		id = num,
 		theme;
 
@@ -32,6 +33,7 @@ var Frame = function(num) {
 		// Initialise the local player
 		localPlayer = new Player(stage, startX, startY, theme);
 		lover = new Lover(stage, realX, startY, theme);
+		rock = new Stone(stage, realX, startY, theme);
 	}();
 
 	var changePosition = function(x,y,width,height) {
@@ -42,12 +44,14 @@ var Frame = function(num) {
 		var newSize = background.changeSize(width, height);
 		localPlayer.changeSize(newSize);
 		lover.changeSize(newSize);
+		rock.changeSize(newSize);
 	}
 
 	var update = function(newX, newY) {
 		background.update(newX, newY);
 		localPlayer.update(100, newY);
 		lover.update(newX, groundLevel);
+		rock.update(newX, groundLevel);
 	};
 
 	var draw = function(time, direction) {
@@ -57,6 +61,7 @@ var Frame = function(num) {
 		// Draw the local player
 		localPlayer.draw(time, direction);
 		lover.draw(time, direction);
+		rock.draw(time, direction);
 
 		renderer.render(stage);
 	};
