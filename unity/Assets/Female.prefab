@@ -68,8 +68,8 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e19baa7f363e044c08bea3ae20c934cc, type: 2}
-  m_CullingMode: 0
-  m_ApplyRootMotion: 1
+  m_CullingMode: 1
+  m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
 --- !u!114 &11400000

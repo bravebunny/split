@@ -34,7 +34,7 @@ public class obstacle_generator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		delta += Time.deltaTime;
-		if (delta >= delay){
+		if (delta >= delay && ((player_behaviour) llama.GetComponent("player_behaviour")).alive){
 			delta = 0;
 			delay = Random.Range(1000, 3000)/1000f;
 

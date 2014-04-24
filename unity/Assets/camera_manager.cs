@@ -17,7 +17,7 @@ public class camera_manager : MonoBehaviour {
 	private player_behaviour llamaC;
 	private player_behaviour llamaD;
 
-	// public int activeCameras = 1;
+	public int activeCameras = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +26,11 @@ public class camera_manager : MonoBehaviour {
 		llamaC = camC.GetComponentInChildren< player_behaviour > ();
 		llamaD = camD.GetComponentInChildren< player_behaviour > ();
 		
+		llamaA.alive = true;
+		llamaB.alive = false;
+		llamaC.alive = false;
+		llamaD.alive = false;
+
 		camA.enabled = false;
 		camB.enabled = false;
 		camC.enabled = false;
@@ -34,28 +39,51 @@ public class camera_manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (llamaA.alive) {
-			camA4.enabled = true;
-		} else {
+		activeCameras = 0;
+		if (llamaA.alive) activeCameras++;
+		if (llamaB.alive) activeCameras++;
+		if (llamaC.alive) activeCameras++;
+		if (llamaD.alive) activeCameras++;
+
+		if (activeCameras == 1) {
+			camA.enabled = llamaA.alive;
+			camB.enabled = llamaB.alive;
+			camC.enabled = llamaC.alive;
+			camD.enabled = llamaD.alive;
+
 			camA4.enabled = false;
-		}
-		
-		if (llamaB.alive) {
-			camB4.enabled = true;
-		} else {
 			camB4.enabled = false;
-		}
-		
-		if (llamaC.alive) {
-			camC4.enabled = true;
-		} else {
 			camC4.enabled = false;
+			camD4.enabled = false;
+		} else {
+			camA4.enabled = llamaA.alive;
+			camB4.enabled = llamaB.alive;
+			camC4.enabled = llamaC.alive;
+			camD4.enabled = llamaD.alive;
+			
+			camA.enabled = false;
+			camB.enabled = false;
+			camC.enabled = false;
+			camD.enabled = false;
 		}
 		
-		if (llamaD.alive) {
-			camD4.enabled = true;
-		} else {
-			camD4.enabled = false;
+		if (llamaA.woohoo || llamaB.woohoo || llamaC.woohoo || llamaD.woohoo) {
+
+			if(!llamaA.alive) {
+				llamaA.revive();
+			} else if(!llamaB.alive) {
+				llamaB.revive();
+			} else if(!llamaC.alive) {
+				llamaC.revive();
+			} else if(!llamaD.alive) {
+				llamaD.revive();
+			} 
+
+			llamaA.woohoo = false;
+			llamaB.woohoo = false;
+			llamaC.woohoo = false;
+			llamaD.woohoo = false;
 		}
+
 	}
 }

@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
+  woohoo: 0
 --- !u!65 &201034093
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -209,7 +210,7 @@ Camera:
   m_GameObject: {fileID: 249051069}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -556,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
+  woohoo: 0
 --- !u!65 &561699237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -648,7 +650,7 @@ Camera:
   m_GameObject: {fileID: 730148532}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -743,7 +745,7 @@ Camera:
   m_GameObject: {fileID: 942700285}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -1484,6 +1486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
+  woohoo: 0
 --- !u!65 &1856521021
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1601,6 +1604,7 @@ MonoBehaviour:
   camB4: {fileID: 730148533}
   camC4: {fileID: 2140648077}
   camD4: {fileID: 942700286}
+  activeCameras: 1
 --- !u!23 &1977962353
 Renderer:
   m_ObjectHideFlags: 0
@@ -1820,6 +1824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
+  woohoo: 0
 --- !u!65 &2103821127
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1912,7 +1917,7 @@ Camera:
   m_GameObject: {fileID: 2140648076}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
