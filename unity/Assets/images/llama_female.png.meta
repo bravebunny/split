@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: 34f7b292ce09044e2a9abfa07bdb0257
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 2
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: llama_female_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 450
+        width: 39
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 450
+        width: 40
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 450
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_5
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 450
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_6
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 450
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_7
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 450
+        width: 37
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_8
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 449
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_11
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 384
+        width: 39
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_12
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 384
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_13
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 384
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_14
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 384
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_15
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 384
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_16
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 384
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_17
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 384
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 318
+        width: 42
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_19
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 318
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_20
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 318
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_21
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 318
+        width: 49
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_22
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 318
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_23
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 318
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_24
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 318
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: llama_female_25
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 252
+        width: 47
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 
