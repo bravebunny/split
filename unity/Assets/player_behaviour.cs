@@ -3,10 +3,9 @@ using System.Collections;
 
 public class player_behaviour : MonoBehaviour {
 
-	public float jumpForce = 1000f;
-	public bool alive = true;
-
 	private float startingHeight;
+	
+	public bool alive = true;
 	
 	private bool jumping = false;
 	private bool sliding = false;
@@ -49,6 +48,6 @@ public class player_behaviour : MonoBehaviour {
 
 	void OnCollisionEnter(Collision c) {
 		alive = false;
-		Destroy (rigidbody.gameObject);
+		//Destroy (rigidbody.gameObject);
 	}
 }

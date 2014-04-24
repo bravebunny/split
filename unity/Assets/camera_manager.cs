@@ -7,15 +7,17 @@ public class camera_manager : MonoBehaviour {
 	public Camera camB;
 	public Camera camC;
 	public Camera camD;
-	public Camera cam2;
-	public Camera cam4;
+	public Camera camA4;
+	public Camera camB4;
+	public Camera camC4;
+	public Camera camD4;
 
 	private player_behaviour llamaA;
 	private player_behaviour llamaB;
 	private player_behaviour llamaC;
 	private player_behaviour llamaD;
 
-	public int activeCameras = 1;
+	// public int activeCameras = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -23,32 +25,37 @@ public class camera_manager : MonoBehaviour {
 		llamaB = camB.GetComponentInChildren< player_behaviour > ();
 		llamaC = camC.GetComponentInChildren< player_behaviour > ();
 		llamaD = camD.GetComponentInChildren< player_behaviour > ();
+		
+		camA.enabled = false;
+		camB.enabled = false;
+		camC.enabled = false;
+		camD.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (llamaA.alive && llamaB.alive && llamaC.alive && llamaD.alive) {
-			activeCameras = 4;
+		if (llamaA.alive) {
+			camA4.enabled = true;
 		} else {
-			activeCameras = 1;
+			camA4.enabled = false;
 		}
-
-		switch (activeCameras) {
-			case 1:
-				camA.enabled = true;
-				cam2.enabled = false;
-				cam4.enabled = false;
-				break;
-			case 2:
-				camA.enabled = false;
-				cam2.enabled = true;
-				cam4.enabled = false;
-				break;
-			case 4:
-				camA.enabled = false;
-				cam2.enabled = false;
-				cam4.enabled = true;
-				break;
+		
+		if (llamaB.alive) {
+			camB4.enabled = true;
+		} else {
+			camB4.enabled = false;
+		}
+		
+		if (llamaC.alive) {
+			camC4.enabled = true;
+		} else {
+			camC4.enabled = false;
+		}
+		
+		if (llamaD.alive) {
+			camD4.enabled = true;
+		} else {
+			camD4.enabled = false;
 		}
 	}
 }
