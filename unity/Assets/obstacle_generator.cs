@@ -5,8 +5,9 @@ public class obstacle_generator : MonoBehaviour {
 
 	public GameObject stone;
 
-	private float stoneX;
-	private float stoneY;
+	private float stoneX = 11;
+	private float stoneY = -20;
+	private float stoneZ = 0;
 
 	private float delta = 0;
 	private float delay = 1.5f;
@@ -15,8 +16,7 @@ public class obstacle_generator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		stoneX = stone.transform.position.x;
-		stoneY = stone.transform.position.y;
+
 	}
 	
 	// Update is called once per frame
@@ -24,13 +24,14 @@ public class obstacle_generator : MonoBehaviour {
 		delta += Time.deltaTime;
 		if (delta >= delay){
 			delta = 0;
+			delay = Random.Range(1000, 3000)/1000f;
 
 			GameObject newStone = (GameObject) Instantiate(stone);
-			newStone.transform.position = new Vector3(stoneX, stoneY, stone.transform.position.z);
+			newStone.transform.position = new Vector3(stoneX, stoneY, stoneZ);
 
 			list.Add (newStone);
 
-			if (list.Count > 1){
+			if (list.Count > 10){
 				Destroy((GameObject) list[0]);
 				list.RemoveAt(0);
 			}
