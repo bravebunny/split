@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\player_behaviour.cs">
     <Files>
-      <File FileName="Assets\player_behaviour.cs" Line="17" Column="36" />
-      <File FileName="Assets\player_behaviour.cs" Line="27" Column="1" />
+      <File FileName="Assets\player_behaviour.cs" Line="41" Column="1" />
+      <File FileName="Assets\stone_behaviour.cs" Line="20" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
