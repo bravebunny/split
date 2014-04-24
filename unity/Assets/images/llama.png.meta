@@ -24,9 +24,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -44,6 +44,168 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: llama_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 450
+        width: 39
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 450
+        width: 40
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 450
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_3
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 384
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_4
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 384
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 384
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 318
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_7
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 318
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_8
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 318
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 252
+        width: 41
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_10
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 252
+        width: 42
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_11
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 252
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 186
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_13
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 186
+        width: 49
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_14
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 186
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_15
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 120
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_16
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 120
+        width: 48
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: llama_17
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 120
+        width: 47
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
   spritePackingTag: 
   userData: 
