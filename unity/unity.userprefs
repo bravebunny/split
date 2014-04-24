@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\obstacle_generator.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/camera_manager.cs">
     <Files>
-      <File FileName="Assets\obstacle_generator.cs" Line="27" Column="32" />
-      <File FileName="Assets\obstacle_generator.cs" Line="41" Column="1" />
+      <File FileName="Assets/player_behaviour.cs" Line="49" Column="1" />
+      <File FileName="Assets/camera_manager.cs" Line="19" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
