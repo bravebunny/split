@@ -392,6 +392,7 @@ GameObject:
   - 124: {fileID: 377277529}
   - 81: {fileID: 377277528}
   - 95: {fileID: 377277527}
+  - 114: {fileID: 377277532}
   m_Layer: 0
   m_Name: Camera1
   m_TagString: MainCamera
@@ -434,7 +435,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 377277525}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &377277529
 Behaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +479,18 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
   m_OcclusionCulling: 1
+--- !u!114 &377277532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 377277525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f30d50e96f3c5a4f8b3c711359609cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stone: {fileID: 186242339}
 --- !u!1 &460237670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,7 +1525,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1627415237}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1627415241
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1581,7 +1594,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1773679761}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!92 &1773679763
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1602,7 +1615,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1773679761}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
@@ -1867,7 +1880,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1931249356}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1931249360
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1966,7 +1979,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2147343537}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &2147343541
 Behaviour:
   m_ObjectHideFlags: 0
