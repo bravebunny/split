@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd91047c80b6db14a88d634385cb0eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  llama: {fileID: 92412708}
+  jumpForce: 1000
 --- !u!65 &92412707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -455,7 +455,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 377277525}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd91047c80b6db14a88d634385cb0eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  llama: {fileID: 912915955}
+  jumpForce: 1000
 --- !u!65 &912915954
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd91047c80b6db14a88d634385cb0eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  llama: {fileID: 1334086093}
+  jumpForce: 1000
 --- !u!65 &1334086092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1574,7 +1574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1773679762
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1736,7 +1736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd91047c80b6db14a88d634385cb0eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  llama: {fileID: 1856521022}
+  jumpForce: 1000
 --- !u!65 &1856521021
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1773,10 +1773,10 @@ Animator:
   m_GameObject: {fileID: 1856521019}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1f88b556492e34fd89414878d14e8b51, type: 2}
-  m_CullingMode: 0
-  m_ApplyRootMotion: 1
-  m_AnimatePhysics: 0
+  m_Controller: {fileID: 9100000, guid: 8631aa4a4b2e047ff93de90bb266ff79, type: 2}
+  m_CullingMode: 1
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 1
   m_HasTransformHierarchy: 1
 --- !u!212 &1856521024
 SpriteRenderer:
