@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\camera_manager.cs" />
+     <Compile Include="Assets\female_behaviour.cs" />
      <Compile Include="Assets\obstacle_generator.cs" />
      <Compile Include="Assets\player_behaviour.cs" />
      <Compile Include="Assets\stone_behaviour.cs" />

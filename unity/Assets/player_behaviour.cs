@@ -47,7 +47,14 @@ public class player_behaviour : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision c) {
-		alive = false;
+		print (c.gameObject.name);
+		if (c.gameObject.name == "Stone(Clone)") {
+			alive = false;
+			Destroy (rigidbody.gameObject);
+		} else {
+			print ("BANANANA");
+		}
+		//alive = false;
 		//Destroy (rigidbody.gameObject);
 	}
 }

@@ -6,6 +6,9 @@ public class obstacle_generator : MonoBehaviour {
 	public GameObject stone;
 
 	public GameObject llama;
+
+	public GameObject female;
+
 	private float stoneX = 21;
 	private float stoneY = -1;
 	private float stoneZ = 0;
@@ -35,8 +38,15 @@ public class obstacle_generator : MonoBehaviour {
 			delta = 0;
 			delay = Random.Range(1000, 3000)/1000f;
 
-			GameObject newStone = (GameObject) Instantiate(stone);
-			newStone.transform.position = new Vector3(stoneX, stoneY, stoneZ);
+			GameObject newStone;
+			if (Random.Range(0, 100) < 80){
+				newStone = (GameObject) Instantiate(stone);
+				newStone.transform.position = new Vector3(stoneX, stoneY, stoneZ);
+			}
+			else{
+				newStone = (GameObject) Instantiate(female);
+				newStone.transform.position = new Vector3(stoneX-3, stoneY+1.5f, stoneZ);
+			}
 
 			list.Add (newStone);
 		}
@@ -45,6 +55,7 @@ public class obstacle_generator : MonoBehaviour {
 			if (stone.transform.position.x < stoneX - 24) {
 				list.Remove(stone);
 				Destroy (stone);
+				break;
 			}
 		}
 	}
