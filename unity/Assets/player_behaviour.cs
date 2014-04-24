@@ -3,39 +3,52 @@ using System.Collections;
 
 public class player_behaviour : MonoBehaviour {
 
-	public Rigidbody llama;
+	public float jumpForce = 1000f;
 
 	private float startingHeight;
 	//private float startingGravityScale;
-
+	
 	private bool jumping = false;
+	private bool sliding = false;
+
+	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		startingHeight = llama.transform.position.y;
+		startingHeight = rigidbody.transform.position.y;
 		//startingGravityScale = llama.gravityScale;
 		Physics.gravity = new Vector3(0,-15,0);
+
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (llama.transform.position.y <= startingHeight) {
-			if (Mathf.Sign(llama.velocity.y) < 0){
+		if (rigidbody.transform.position.y <= startingHeight) {
+			if (Mathf.Sign(rigidbody.velocity.y) < 0 && jumping){
 				//llama.gravityScale = 0f;
-				llama.velocity = new Vector2(0, 0);
+				rigidbody.velocity = new Vector2(0, 0);
 				jumping = false;
+				anim.SetTrigger ("Grounded");
 			}
-			llama.transform.position = new Vector3(llama.transform.position.x, startingHeight, llama.transform.position.z);
+			rigidbody.transform.position = new Vector3(rigidbody.transform.position.x, startingHeight, rigidbody.transform.position.z);
 
-			if (Input.GetKeyDown(KeyCode.Space)) {
+			if (Input.GetButtonDown("Jump")) {
 				//llama.gravityScale = startingGravityScale;
-				llama.AddForce(new Vector2(0, 630f));
+				rigidbody.AddForce(new Vector3(0, jumpForce,0));
 				jumping = true;
+				anim.SetTrigger ("Jump");
 			}
-		}
-
-		if (jumping) {
-			//animate
+			else if (Input.GetButtonDown("Slide")) {
+				//llama.gravityScale = startingGravityScale;
+				sliding = true;
+				anim.SetTrigger ("Slide");
+			}
+			else if (Input.GetButtonDown("Spit")) {
+				//llama.gravityScale = startingGravityScale;
+				sliding = true;
+				anim.SetTrigger ("Spit");
+			}
 		}
 	}
 }
