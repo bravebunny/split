@@ -5,7 +5,7 @@ public class obstacle_generator : MonoBehaviour {
 
 	public GameObject stone;
 
-	public GameObject camera;
+	public GameObject llama;
 	private float stoneX = 21;
 	private float stoneY = -1;
 	private float stoneZ = 0;
@@ -22,9 +22,9 @@ public class obstacle_generator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		stoneX += camera.transform.position.x;
-		stoneY += camera.transform.position.y;
-		stoneZ += camera.transform.position.z;
+		stoneX += llama.transform.position.x;
+		stoneY += llama.transform.position.y;
+		stoneZ += llama.transform.position.z;
 
 	}
 	
@@ -39,10 +39,12 @@ public class obstacle_generator : MonoBehaviour {
 			newStone.transform.position = new Vector3(stoneX, stoneY, stoneZ);
 
 			list.Add (newStone);
+		}
 
-			if (list.Count > 10){
-				Destroy((GameObject) list[0]);
-				list.RemoveAt(0);
+		foreach (GameObject stone in list) {
+			if (stone.transform.position.x < stoneX - 24) {
+				list.Remove(stone);
+				Destroy (stone);
 			}
 		}
 	}

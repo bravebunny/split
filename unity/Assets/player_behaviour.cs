@@ -49,5 +49,6 @@ public class player_behaviour : MonoBehaviour {
 
 	void OnCollisionEnter(Collision c) {
 		alive = false;
+		Destroy (rigidbody.gameObject);
 	}
 }
