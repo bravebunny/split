@@ -3,7 +3,7 @@ using System.Collections;
 
 public class stone_behaviour : MonoBehaviour {
 
-	public Rigidbody2D rigidbody;
+	public Rigidbody rigidbody;
 
 	public float speed = -10;
 
