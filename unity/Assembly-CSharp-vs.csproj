@@ -50,6 +50,7 @@
      <Compile Include="Assets\female_behaviour.cs" />
      <Compile Include="Assets\obstacle_generator.cs" />
      <Compile Include="Assets\player_behaviour.cs" />
+     <Compile Include="Assets\score.cs" />
      <Compile Include="Assets\stone_behaviour.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

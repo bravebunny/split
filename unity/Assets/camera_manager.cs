@@ -11,6 +11,8 @@ public class camera_manager : MonoBehaviour {
 	public Camera camB4;
 	public Camera camC4;
 	public Camera camD4;
+	
+	public GameObject text;
 
 	private player_behaviour llamaA;
 	private player_behaviour llamaB;
@@ -18,6 +20,8 @@ public class camera_manager : MonoBehaviour {
 	private player_behaviour llamaD;
 
 	public int activeCameras = 1;
+
+	public int score = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -30,11 +34,6 @@ public class camera_manager : MonoBehaviour {
 		llamaB.alive = false;
 		llamaC.alive = false;
 		llamaD.alive = false;
-
-		camA.enabled = false;
-		camB.enabled = false;
-		camC.enabled = false;
-		camD.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -85,5 +84,20 @@ public class camera_manager : MonoBehaviour {
 			llamaD.woohoo = false;
 		}
 
+		score += activeCameras*2;
+		
+		text.guiText.text = "Score: " + score/50;
+
+		if (Input.GetButtonDown ("Restart")) {		
+			llamaA.alive = true;
+			llamaB.alive = false;
+			llamaC.alive = false;
+			llamaD.alive = false;
+
+			score = 0;
+
+			foreach(obstacle_generator og in GetComponents<obstacle_generator>())
+				og.clean();
+		}
 	}
 }

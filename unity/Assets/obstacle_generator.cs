@@ -34,7 +34,9 @@ public class obstacle_generator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		delta += Time.deltaTime;
-		if (delta >= delay && ((player_behaviour) llama.GetComponent("player_behaviour")).alive){
+		if (!((player_behaviour)llama.GetComponent ("player_behaviour")).alive)
+			clean ();
+		else if (delta >= delay){
 			delta = 0;
 			delay = Random.Range(1000, 3000)/1000f;
 
@@ -58,5 +60,11 @@ public class obstacle_generator : MonoBehaviour {
 				break;
 			}
 		}
+	}
+
+	public void clean(){
+		foreach (GameObject crap in list)
+			Destroy (crap);
+		list.Clear ();
 	}
 }
