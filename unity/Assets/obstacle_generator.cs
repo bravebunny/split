@@ -5,8 +5,9 @@ public class obstacle_generator : MonoBehaviour {
 
 	public GameObject stone;
 
-	private float stoneX = 11;
-	private float stoneY = -20;
+	public GameObject camera;
+	private float stoneX = 21;
+	private float stoneY = -1;
 	private float stoneZ = 0;
 
 	private float delta = 0;
@@ -14,8 +15,16 @@ public class obstacle_generator : MonoBehaviour {
 
 	private ArrayList list = new ArrayList();
 
+	private bool topLeft = true;
+	private bool topRight = false;
+	private bool bottomLeft = false;
+	private bool bottomRight = false;
+
 	// Use this for initialization
 	void Start () {
+		stoneX += camera.transform.position.x;
+		stoneY += camera.transform.position.y;
+		stoneZ += camera.transform.position.z;
 
 	}
 	

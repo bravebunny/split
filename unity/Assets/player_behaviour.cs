@@ -4,6 +4,7 @@ using System.Collections;
 public class player_behaviour : MonoBehaviour {
 
 	public float jumpForce = 1000f;
+	public bool alive = true;
 
 	private float startingHeight;
 	
@@ -44,5 +45,9 @@ public class player_behaviour : MonoBehaviour {
 				anim.SetTrigger ("Spit");
 			}
 		}
+	}
+
+	void OnCollisionEnter(Collision c) {
+		alive = false;
 	}
 }
