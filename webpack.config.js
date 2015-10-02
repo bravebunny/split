@@ -24,7 +24,8 @@ module.exports = {
       {
         test: /\.json$/,
         include: path.join(__dirname, 'node_modules', 'pixi.js'),
-        loader: 'json'
+        loader: 'json',
+        exclude: /assets/
       },
       {
         include: /\.js*/,
@@ -34,8 +35,10 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
+        test: /\.(png|json)$/,
+        include: path.join(__dirname, 'assets'),
+        loader: 'file-loader?name=[path][name].[ext]&context=' +
+          path.resolve(__dirname, 'assets/')
       }
     ]
   },
