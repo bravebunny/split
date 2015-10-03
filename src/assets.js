@@ -1,6 +1,8 @@
 import PIXI from 'pixi.js'
 import '../assets/llama.png'
 import '../assets/llama.json'
+import '../assets/background.png'
+import '../assets/stone.png'
 
 const assetsToLoad = [ 'llama.json' ]
 
@@ -11,9 +13,13 @@ export let llamaSlideFrames = []
 export let llamaSpitFrames = []
 export let llamaLoverFrames = []
 
+export let stone
+
 const loader = new PIXI.loaders.Loader()
 
 loader.add('llama.json')
+loader.add('background.png')
+loader.add('stone.png')
 
 export default function (callback) {
   loader.load(function (loader, resources) {
@@ -37,6 +43,8 @@ export default function (callback) {
       llamaLoverFrames.push(PIXI.Texture.fromFrame(`llamaLover${i}.png`))
     }
   })
+
+  stone = PIXI.Sprite.fromImage('stone.png');
 
   callback()
 }
