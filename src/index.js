@@ -1,3 +1,3 @@
 import Game from './game'
 
-const game = new Game()
+const game = new Game() // eslint-disable-line no-unused-vars
