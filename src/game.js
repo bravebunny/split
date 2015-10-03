@@ -1,7 +1,6 @@
 import Keys from './keys'
 import requestAnimationFrame from 'raf'
-import * as assets from './assets'
-
+import loadAssets, * as assets from './assets'
 
 export default class {
   constructor () {
@@ -14,7 +13,8 @@ export default class {
     this.time = 0
 
     this.setEventHandlers()
-    this.animate()
+
+    loadAssets(this.animate)
   }
 
   setEventHandlers () {
