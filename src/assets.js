@@ -11,7 +11,8 @@ export let llamaSlideFrames = []
 export let llamaSpitFrames = []
 export let llamaLoverFrames = []
 
-export let stone
+export let stone = PIXI.Sprite.fromImage('stone.png')
+export let background = PIXI.Sprite.fromImage('background.png')
 
 const loader = new PIXI.loaders.Loader()
 
@@ -43,8 +44,6 @@ export default function (callback) {
       llamaLoverFrames.push(PIXI.Texture.fromFrame(`llamaLover${i}.png`))
     }
   })
-
-  stone = PIXI.Sprite.fromImage('stone.png')
 
   callback()
 }

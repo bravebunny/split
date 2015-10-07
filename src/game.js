@@ -24,6 +24,8 @@ export default class {
     this.time = 0
     this.frames = []
 
+    this.x = 0
+
     this.setEventHandlers()
 
     loadAssets(this.init)
@@ -32,6 +34,8 @@ export default class {
   setEventHandlers () {
     window.addEventListener('keydown', this.keys.onKeyDown, false)
     window.addEventListener('keyup', this.keys.onKeyUp, false)
+
+    window.addEventListener('resize', this.updateFramesPosition, false)
   }
 
   init () {
@@ -53,15 +57,23 @@ export default class {
 
     const { up, down, left, right } = this.keys.getState()
 
-    if (up || right) {
+    if (right) {
+      this.x += 5
+    }
+
+    if (left) {
+      this.x -= 5
+    }
+
+    if (up) {
       this.createFrame()
     }
 
-    if (down || left) {
+    if (down) {
       this.destroyFrame(0)
     }
 
-    this.frames.forEach((frame) => frame.update())
+    this.frames.forEach((frame) => frame.update(this.x, this.y, this.time))
   }
 
   draw () {
