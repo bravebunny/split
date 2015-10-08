@@ -2,6 +2,9 @@ import PIXI from 'pixi.js'
 import '../assets/llama.png'
 import '../assets/llama.json'
 import '../assets/background.png'
+import '../assets/background-far.png'
+import '../assets/background-middle.png'
+import '../assets/background-near.png'
 import '../assets/stone.png'
 
 export let llamaLeftFrames = []
@@ -18,6 +21,9 @@ const loader = new PIXI.loaders.Loader()
 
 loader.add('llama.json')
 loader.add('background.png')
+loader.add('background-far.png')
+loader.add('background-middle.png')
+loader.add('background-near.png')
 loader.add('stone.png')
 
 export default function (callback) {
