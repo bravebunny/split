@@ -43,7 +43,7 @@ export default function (callback) {
     for (i = 1; i < 5; i++) {
       llamaLoverFrames.push(PIXI.Texture.fromFrame(`llamaLover${i}.png`))
     }
-  })
 
-  callback()
+    callback()
+  })
 }

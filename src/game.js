@@ -3,7 +3,12 @@ import loadAssets from './assets'
 import Keys from './keys'
 import Frame from './frame'
 
-const PROTECTION_TIME = 100
+import {
+  PROTECTION_TIME, GROUND_LEVEL, SPEED,
+  JUMP_TIME, JUMP_SPEED, JUMP_ACCELERATION,
+  SPIT_TIME, SLIDE_TIME,
+  FORWARD, JUMPING, SLIDDING, SPITTING
+} from './consts'
 
 export default class {
   constructor () {
@@ -24,9 +29,14 @@ export default class {
     this.time = 0
     this.frames = []
 
-    this.x = 0
+    this.state = FORWARD
 
-    this.setEventHandlers()
+    this.x = 0
+    this.y = GROUND_LEVEL
+
+    this.jumpTicks = JUMP_TIME
+    this.spitTicks = SPIT_TIME
+    this.slideTicks = SLIDE_TIME
 
     loadAssets(this.init)
   }
@@ -42,6 +52,8 @@ export default class {
     this.frames.push(new Frame(this.frames.length))
     this.updateFramesPosition()
 
+    this.setEventHandlers()
+
     this.animate()
   }
 
@@ -55,21 +67,44 @@ export default class {
   update () {
     this.time += 1
 
-    const { up, down, left, right } = this.keys.getState()
+    const { up, down, right, left, space } = this.keys.getState()
 
-    if (right) {
-      this.x += 5
+    if (up && this.jumpTicks >= JUMP_TIME) {
+      this.state = JUMPING
+      this.jumpTicks = 0
+      this.baseY = this.y
+    } else if (down && this.slideTicks >= SLIDE_TIME) {
+      this.state = SLIDDING
+      this.slideTicks = 0
+    } else if (right && this.spitTicks >= SPIT_TIME) {
+      this.state = SPITTING
+      this.spitTicks = 0
     }
 
-    if (left) {
-      this.x -= 5
+    if (this.jumpTicks >= JUMP_TIME && this.slideTicks >= SLIDE_TIME && this.spitTicks >= SPIT_TIME) {
+      this.state = FORWARD
     }
 
-    if (up) {
+    this.x += SPEED
+
+    if (this.jumpTicks < JUMP_TIME) {
+      if (this.y <= this.baseY) {
+        this.y = (this.baseY - (JUMP_SPEED * this.jumpTicks) + (0.5 * JUMP_ACCELERATION * this.jumpTicks * this.jumpTicks))
+      } else {
+        this.y = this.baseY
+        this.jumpTicks = JUMP_TIME
+      }
+    }
+
+    this.jumpTicks++
+    this.spitTicks++
+    this.slideTicks++
+
+    if (space) {
       this.createFrame()
     }
 
-    if (down) {
+    if (left) {
       this.destroyFrame(0)
     }
 
@@ -77,7 +112,7 @@ export default class {
   }
 
   draw () {
-    this.frames.forEach((frame) => frame.draw())
+    this.frames.forEach((frame) => frame.draw(this.state))
   }
 
   updateFramesPosition () {

@@ -1,6 +1,6 @@
 import PIXI from 'pixi.js'
-import * as assets from './assets'
 import Background from './background'
+import Player from './player'
 
 export default class {
   constructor () {
@@ -13,7 +13,11 @@ export default class {
 
     this.stage = new PIXI.Container()
 
+    const startX = 100
+    const startY = 10
+
     this.background = new Background(this.stage, 320, 240)
+    this.player = new Player(this.stage, startX, startY)
 
     this.renderer.view.style.position = 'absolute'
     this.renderer.view.style.top = '0px'
@@ -25,12 +29,14 @@ export default class {
 
   update (x, y) {
     this.background.update(x)
+
+    this.player.update(100, y)
   }
 
-  draw () {
+  draw (state) {
     this.background.draw()
 
-    this.stage.addChild(assets.stone)
+    this.player.draw(this.stage, state)
 
     this.renderer.render(this.stage)
   }
@@ -41,6 +47,7 @@ export default class {
     this.renderer.view.style.left = `${x}px`
 
     const scale = this.background.changeSize(width, height)
+    this.player.changeSize(scale)
     console.log('new scale', scale)
   }
 
