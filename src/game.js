@@ -108,7 +108,7 @@ export default class {
       this.destroyFrame(0)
     }
 
-    this.frames.forEach((frame) => frame.update(this.x, this.y, this.time))
+    this.frames.forEach((frame) => frame.update(this.x, this.y, this.state))
   }
 
   draw () {
@@ -116,39 +116,41 @@ export default class {
   }
 
   updateFramesPosition () {
+    const windowHeight = window.innerHeight
+    const windowWidth = window.innerWidth
     switch (this.frames.length) {
       case 1:
-        this.frames[0].changePosition(0, 0, window.innerWidth, window.innerHeight)
+        this.frames[0].changePosition(0, 0, windowWidth, windowHeight)
         break
       case 2:
-        this.frames[0].changePosition(0, 0, window.innerWidth / 2, window.innerHeight)
-        this.frames[1].changePosition(window.innerWidth / 2, 0, window.innerWidth / 2, window.innerHeight)
+        this.frames[0].changePosition(0, 0, windowWidth / 2, windowHeight)
+        this.frames[1].changePosition(windowWidth / 2, 0, windowWidth / 2, windowHeight)
         break
       case 3:
-        this.frames[0].changePosition(0, 0, window.innerWidth / 2, window.innerHeight / 2)
-        this.frames[1].changePosition(window.innerWidth / 2, 0, window.innerWidth / 2, window.innerHeight / 2)
-        this.frames[2].changePosition(window.innerWidth / 4, window.innerHeight / 2, window.innerWidth / 2, window.innerHeight / 2)
+        this.frames[0].changePosition(0, 0, windowWidth / 2, windowHeight / 2)
+        this.frames[1].changePosition(windowWidth / 2, 0, windowWidth / 2, windowHeight / 2)
+        this.frames[2].changePosition(windowWidth / 4, windowHeight / 2, windowWidth / 2, windowHeight / 2)
         break
       case 4:
-        this.frames[0].changePosition(0, 0, window.innerWidth / 2, window.innerHeight / 2)
-        this.frames[1].changePosition(window.innerWidth / 2, 0, window.innerWidth / 2, window.innerHeight / 2)
-        this.frames[2].changePosition(0, window.innerHeight / 2, window.innerWidth / 2, window.innerHeight / 2)
-        this.frames[3].changePosition(window.innerWidth / 2, window.innerHeight / 2, window.innerWidth / 2, window.innerHeight / 2)
+        this.frames[0].changePosition(0, 0, windowWidth / 2, windowHeight / 2)
+        this.frames[1].changePosition(windowWidth / 2, 0, windowWidth / 2, windowHeight / 2)
+        this.frames[2].changePosition(0, windowHeight / 2, windowWidth / 2, windowHeight / 2)
+        this.frames[3].changePosition(windowWidth / 2, windowHeight / 2, windowWidth / 2, windowHeight / 2)
         break
       case 5:
-        this.frames[0].changePosition(0, 0, window.innerWidth / 3, window.innerHeight / 2)
-        this.frames[1].changePosition(0, window.innerHeight / 2, window.innerWidth / 3, window.innerHeight / 2)
-        this.frames[2].changePosition(2 * window.innerWidth / 3, 0, window.innerWidth / 3, window.innerHeight / 2)
-        this.frames[3].changePosition(2 * window.innerWidth / 3, window.innerHeight / 2, window.innerWidth / 3, window.innerHeight / 2)
-        this.frames[4].changePosition(window.innerWidth / 3, window.innerHeight / 4, window.innerWidth / 3, window.innerHeight / 2)
+        this.frames[0].changePosition(0, 0, windowWidth / 3, windowHeight / 2)
+        this.frames[1].changePosition(0, windowHeight / 2, windowWidth / 3, windowHeight / 2)
+        this.frames[2].changePosition(2 * windowWidth / 3, 0, windowWidth / 3, windowHeight / 2)
+        this.frames[3].changePosition(2 * windowWidth / 3, windowHeight / 2, windowWidth / 3, windowHeight / 2)
+        this.frames[4].changePosition(windowWidth / 3, windowHeight / 4, windowWidth / 3, windowHeight / 2)
         break
       case 6:
-        this.frames[0].changePosition(0, 0, window.innerWidth / 3, window.innerHeight / 2)
-        this.frames[1].changePosition(0, window.innerHeight / 2, window.innerWidth / 3, window.innerHeight / 2)
-        this.frames[2].changePosition(2 * window.innerWidth / 3, 0, window.innerWidth / 3, window.innerHeight / 2)
-        this.frames[3].changePosition(2 * window.innerWidth / 3, window.innerHeight / 2, window.innerWidth / 3, window.innerHeight / 2)
-        this.frames[4].changePosition(window.innerWidth / 3, 0, window.innerWidth / 3, window.innerHeight / 2)
-        this.frames[5].changePosition(window.innerWidth / 3, window.innerHeight / 2, window.innerWidth / 3, window.innerHeight / 2)
+        this.frames[0].changePosition(0, 0, windowWidth / 3, windowHeight / 2)
+        this.frames[1].changePosition(0, windowHeight / 2, windowWidth / 3, windowHeight / 2)
+        this.frames[2].changePosition(2 * windowWidth / 3, 0, windowWidth / 3, windowHeight / 2)
+        this.frames[3].changePosition(2 * windowWidth / 3, windowHeight / 2, windowWidth / 3, windowHeight / 2)
+        this.frames[4].changePosition(windowWidth / 3, 0, windowWidth / 3, windowHeight / 2)
+        this.frames[5].changePosition(windowWidth / 3, windowHeight / 2, windowWidth / 3, windowHeight / 2)
         break
     }
   }

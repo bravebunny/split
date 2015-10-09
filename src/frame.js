@@ -2,6 +2,7 @@ import PIXI from 'pixi.js'
 import Background from './background'
 import Player from './player'
 import Lover from './lover'
+import Stone from './stone'
 
 export default class {
   constructor () {
@@ -20,6 +21,7 @@ export default class {
     this.background = new Background(this.stage, 320, 240)
     this.player = new Player(this.stage, startX, startY)
     this.lover = new Lover(this.stage, startX, startY)
+    this.stone = new Stone(this.stage, startX, startY)
 
     this.renderer.view.style.position = 'absolute'
     this.renderer.view.style.top = '0px'
@@ -29,11 +31,12 @@ export default class {
     document.body.appendChild(this.renderer.view)
   }
 
-  update (x, y) {
+  update (x, y, state) {
     this.background.update(x)
 
-    this.player.update(x, y)
-    this.lover.update(x, y)
+    this.player.update(x, y, state)
+    this.lover.update(x, y, state)
+    this.stone.update(x, y, state)
   }
 
   draw (state) {
@@ -41,6 +44,7 @@ export default class {
 
     this.player.draw(this.stage, state)
     this.lover.draw(this.stage)
+    this.stone.draw(this.stage)
 
     this.renderer.render(this.stage)
   }
@@ -53,6 +57,7 @@ export default class {
     const scale = this.background.changeSize(width, height)
     this.player.changeSize(scale)
     this.lover.changeSize(scale)
+    this.stone.changeSize(scale)
   }
 
   destroy () {
