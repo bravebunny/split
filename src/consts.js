@@ -1,5 +1,6 @@
 export const PROTECTION_TIME = 100
 export const GROUND_LEVEL = 400
+export const PLAYER_POSITION = 100
 export const SPEED = 5
 
 export const JUMP_TIME = 500

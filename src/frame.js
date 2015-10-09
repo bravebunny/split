@@ -1,6 +1,7 @@
 import PIXI from 'pixi.js'
 import Background from './background'
 import Player from './player'
+import Lover from './lover'
 
 export default class {
   constructor () {
@@ -18,6 +19,7 @@ export default class {
 
     this.background = new Background(this.stage, 320, 240)
     this.player = new Player(this.stage, startX, startY)
+    this.lover = new Lover(this.stage, startX, startY)
 
     this.renderer.view.style.position = 'absolute'
     this.renderer.view.style.top = '0px'
@@ -30,13 +32,15 @@ export default class {
   update (x, y) {
     this.background.update(x)
 
-    this.player.update(100, y)
+    this.player.update(x, y)
+    this.lover.update(x, y)
   }
 
   draw (state) {
     this.background.draw()
 
     this.player.draw(this.stage, state)
+    this.lover.draw(this.stage)
 
     this.renderer.render(this.stage)
   }
@@ -48,7 +52,7 @@ export default class {
 
     const scale = this.background.changeSize(width, height)
     this.player.changeSize(scale)
-    console.log('new scale', scale)
+    this.lover.changeSize(scale)
   }
 
   destroy () {

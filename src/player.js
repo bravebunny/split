@@ -2,7 +2,7 @@ import PIXI from 'pixi.js'
 import * as assets from './assets'
 import {
   FORWARD, JUMPING, SLIDDING, SPITTING,
-  GROWTH_SPEED
+  GROWTH_SPEED, PLAYER_POSITION
 } from './consts'
 
 export default class {
@@ -39,7 +39,7 @@ export default class {
   }
 
   update (x, y) {
-    this.x = x * this.scale
+    this.x = PLAYER_POSITION * this.scale
     this.y = (y + (1 - this.age) * 64) * this.scale
     if (this.age < 1) {
       this.age += GROWTH_SPEED
