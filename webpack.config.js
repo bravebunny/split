@@ -39,6 +39,10 @@ module.exports = {
         include: path.join(__dirname, 'assets'),
         loader: 'file-loader?name=[path][name].[ext]&context=' +
           path.resolve(__dirname, 'assets/')
+      },
+      {
+        test: /\.(css)$/,
+        loader: 'style!css?outputStyle=expanded'
       }
     ]
   },
