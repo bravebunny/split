@@ -36,8 +36,8 @@ export default class {
     this.sprite.position.x = this.x
     this.sprite.position.y = this.y
 
-    this.sprite.scale.x = this.scale * 2
-    this.sprite.scale.y = this.scale * 2
+    this.sprite.scale.x = this.scale
+    this.sprite.scale.y = this.scale
   }
 
   changeSize (scale) {

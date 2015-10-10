@@ -61,6 +61,8 @@ export default class {
   }
 
   destroy () {
+    document.body.removeChild(this.renderer.view)
+
     this.renderer.destroy()
   }
 }

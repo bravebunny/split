@@ -70,8 +70,6 @@ export default class {
         break
     }
 
-    stage.addChild(movie)
-
     movie.position.x = this.x
     movie.position.y = this.y
 
