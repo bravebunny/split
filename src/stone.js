@@ -1,5 +1,5 @@
 import PIXI from 'pixi.js'
-import { GROUND_LEVEL, PLAYER_POSITION, JUMPING } from './consts'
+import { STONE_LEVEL, PLAYER_POSITION, JUMPING, SPEED } from './consts'
 import game from './index'
 
 export default class {
@@ -9,7 +9,7 @@ export default class {
     this.draw = this.draw.bind(this)
 
     this.x = x + 1000
-    this.y = GROUND_LEVEL
+    this.y = STONE_LEVEL
 
     this.scale = 1
 
@@ -23,8 +23,8 @@ export default class {
   }
 
   update (x, y, state) {
-    this.x -= 5
-    this.y = GROUND_LEVEL * this.scale
+    this.x -= (SPEED * this.scale)
+    this.y = STONE_LEVEL * this.scale
 
     if (!this.killed && this.x < PLAYER_POSITION && this.x > PLAYER_POSITION - 100 && state !== JUMPING) {
       this.killed = true

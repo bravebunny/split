@@ -29,7 +29,7 @@ export default class {
   }
 
   update (x) {
-    this.x = -x
+    this.x = -x * this.scale
   }
 
   draw () {

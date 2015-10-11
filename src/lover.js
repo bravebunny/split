@@ -1,6 +1,6 @@
 import PIXI from 'pixi.js'
 import * as assets from './assets'
-import { GROUND_LEVEL, PLAYER_POSITION } from './consts'
+import { GROUND_LEVEL, PLAYER_POSITION, SPEED } from './consts'
 import game from './index'
 
 export default class {
@@ -24,7 +24,7 @@ export default class {
   }
 
   update (x, y) {
-    this.x -= 5
+    this.x -= (SPEED * this.scale)
     this.y = GROUND_LEVEL * this.scale
 
     if (!this.loved && this.x < PLAYER_POSITION) {
