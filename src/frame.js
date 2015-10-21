@@ -1,4 +1,5 @@
 import PIXI from 'pixi.js'
+import randomColor from 'randomcolor'
 import Background from './background'
 import Player from './player'
 import Lover from './lover'
@@ -12,6 +13,9 @@ export default class {
     this.destroy = this.destroy.bind(this)
 
     this.renderer = PIXI.autoDetectRenderer(320, 240)
+    this.renderer.backgroundColor = parseInt(randomColor({
+      hue: 'blue'
+    }).replace('#', ''), 16)
 
     this.stage = new PIXI.Container()
 
