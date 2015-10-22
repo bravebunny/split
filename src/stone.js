@@ -33,6 +33,14 @@ export default class {
   }
 
   draw (stage, state) {
+    if (this.x < 0) {
+      this.destroy(stage)
+    }
+
+    if (this.destroyed) {
+      return
+    }
+
     this.sprite.position.x = this.x
     this.sprite.position.y = this.y
 
@@ -42,5 +50,11 @@ export default class {
 
   changeSize (scale) {
     this.scale = scale
+  }
+
+  destroy (stage) {
+    this.destroyed = true
+    stage.removeChild(this.sprite)
+    // this.sprite.destroy()
   }
 }

@@ -1,9 +1,13 @@
 import PIXI from 'pixi.js'
 import randomColor from 'randomcolor'
+import { random } from 'lodash'
 import Background from './background'
 import Player from './player'
 import Lover from './lover'
 import Stone from './stone'
+
+const startX = 100
+const startY = 10
 
 export default class {
   constructor () {
@@ -19,13 +23,15 @@ export default class {
 
     this.stage = new PIXI.Container()
 
-    const startX = 100
-    const startY = 10
-
     this.background = new Background(this.stage, 320, 240)
     this.player = new Player(this.stage, startX, startY)
-    this.lover = new Lover(this.stage, startX, startY)
-    this.stone = new Stone(this.stage, startX, startY)
+
+    this.stonesInterval = random(100, 500)
+    this.loversInterval = random(100, 500)
+
+    this.entities = []
+    this.entities.push(new Lover(this.stage, startX, startY))
+    this.entities.push(new Stone(this.stage, startX, startY))
 
     this.renderer.view.style.position = 'absolute'
     this.renderer.view.style.top = '0px'
@@ -38,17 +44,23 @@ export default class {
   update (x, y, state) {
     this.background.update(x)
 
+    if (x % this.stonesInterval === 0) {
+      this.entities.push(new Stone(this.stage, startX, startY))
+    }
+
+    if (x % this.loversInterval === 0) {
+      this.entities.push(new Lover(this.stage, startX, startY))
+    }
+
     this.player.update(x, y, state)
-    this.lover.update(x, y, state)
-    this.stone.update(x, y, state)
+    this.entities.forEach(({ update }) => update(x, y, state))
   }
 
   draw (state) {
     this.background.draw()
 
     this.player.draw(this.stage, state)
-    this.lover.draw(this.stage)
-    this.stone.draw(this.stage)
+    this.entities.forEach(({ draw }) => draw(this.stage))
 
     this.renderer.render(this.stage)
   }
@@ -60,8 +72,7 @@ export default class {
 
     const scale = this.background.changeSize(width, height)
     this.player.changeSize(scale)
-    this.lover.changeSize(scale)
-    this.stone.changeSize(scale)
+    this.entities.forEach(({ changeSize }) => changeSize(scale))
   }
 
   destroy () {

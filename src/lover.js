@@ -34,6 +34,14 @@ export default class {
   }
 
   draw (stage, state) {
+    if (this.x < 0) {
+      this.destroy(stage)
+    }
+
+    if (this.destroyed) {
+      return
+    }
+
     this.loverMovie.position.x = this.x
     this.loverMovie.position.y = this.y
 
@@ -43,5 +51,11 @@ export default class {
 
   changeSize (scale) {
     this.scale = scale
+  }
+
+  destroy (stage) {
+    this.destroyed = true
+    stage.removeChild(this.loverMovie)
+    // this.sprite.destroy()
   }
 }
