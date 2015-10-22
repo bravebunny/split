@@ -51,11 +51,11 @@ export default class {
   draw (state) {
     let movie
 
-    this.rightMovie.position.y = -100
-    this.leftMovie.position.y = -100
-    this.jumpMovie.position.y = -100
-    this.spitMovie.position.y = -100
-    this.slideMovie.position.y = -100
+    this.rightMovie.position.y = -1000
+    this.leftMovie.position.y = -1000
+    this.jumpMovie.position.y = -1000
+    this.spitMovie.position.y = -1000
+    this.slideMovie.position.y = -1000
 
     switch (state) {
       case FORWARD:
