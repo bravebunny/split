@@ -3,15 +3,15 @@ import { STONE_LEVEL, PLAYER_POSITION, JUMPING, SPEED } from './consts'
 import game from './index'
 
 export default class {
-  constructor (stage, x, y) {
+  constructor (stage, x, y, scale) {
     this.changeSize = this.changeSize.bind(this)
     this.update = this.update.bind(this)
     this.draw = this.draw.bind(this)
 
+    this.scale = scale
+
     this.x = x + 1000
     this.y = STONE_LEVEL
-
-    this.scale = 1
 
     const texture = PIXI.Texture.fromImage('stone.png')
     this.sprite = new PIXI.Sprite(texture)

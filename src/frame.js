@@ -22,6 +22,7 @@ export default class {
     }).replace('#', ''), 16)
 
     this.stage = new PIXI.Container()
+    this.scale = 1
 
     this.background = new Background(this.stage, 320, 240)
     this.player = new Player(this.stage, startX, startY)
@@ -30,8 +31,8 @@ export default class {
     this.loversInterval = random(100, 500)
 
     this.entities = []
-    this.entities.push(new Lover(this.stage, startX, startY))
-    this.entities.push(new Stone(this.stage, startX, startY))
+    this.entities.push(new Lover(this.stage, startX, startY, this.scale))
+    this.entities.push(new Stone(this.stage, startX, startY, this.scale))
 
     this.renderer.view.style.position = 'absolute'
     this.renderer.view.style.top = '0px'
@@ -45,11 +46,11 @@ export default class {
     this.background.update(x)
 
     if (x % this.stonesInterval === 0) {
-      this.entities.push(new Stone(this.stage, startX, startY))
+      this.entities.push(new Stone(this.stage, startX, startY, this.scale))
     }
 
     if (x % this.loversInterval === 0) {
-      this.entities.push(new Lover(this.stage, startX, startY))
+      this.entities.push(new Lover(this.stage, startX, startY, this.scale))
     }
 
     this.player.update(x, y, state)
@@ -70,9 +71,9 @@ export default class {
     this.renderer.view.style.top = `${y}px`
     this.renderer.view.style.left = `${x}px`
 
-    const scale = this.background.changeSize(width, height)
-    this.player.changeSize(scale)
-    this.entities.forEach(({ changeSize }) => changeSize(scale))
+    this.scale = this.background.changeSize(width, height)
+    this.player.changeSize(this.scale)
+    this.entities.forEach(({ changeSize }) => changeSize(this.scale))
   }
 
   destroy () {

@@ -4,15 +4,15 @@ import { GROUND_LEVEL, PLAYER_POSITION, SPEED } from './consts'
 import game from './index'
 
 export default class {
-  constructor (stage, x, y) {
+  constructor (stage, x, y, scale) {
     this.changeSize = this.changeSize.bind(this)
     this.update = this.update.bind(this)
     this.draw = this.draw.bind(this)
 
+    this.scale = scale
+
     this.x = x + 2000
     this.y = GROUND_LEVEL
-
-    this.scale = 1
 
     this.loverMovie = new PIXI.extras.MovieClip(assets.llamaLoverFrames)
 
