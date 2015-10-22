@@ -1,13 +1,9 @@
 'use strict'
 
-// http://olav.it/snippet/webpack-pixi-js/
-
-const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  devtool: 'source-map',
   entry: './index.js',
   output: {
     path: 'dist',
@@ -15,8 +11,6 @@ module.exports = {
     hash: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin()
   ],
   module: {
@@ -45,18 +39,6 @@ module.exports = {
         loader: 'style!css?outputStyle=expanded'
       }
     ]
-  },
-  devServer: {
-    contentBase: './dist',
-    publicPath: 'http://localhost:8080/',
-    hot: true,
-    inline: true,
-    lazy: false,
-    quiet: true,
-    noInfo: false,
-    headers: { 'Access-Control-Allow-Origin': '*' },
-    stats: { colors: true },
-    host: 'localhost'
   },
   node: {
     fs: 'empty'
