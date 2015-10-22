@@ -6,7 +6,9 @@ import {
 } from './consts'
 
 export default class {
-  constructor (stage, x, y) {
+  constructor (parent, x, y) {
+    this.parent = parent
+
     this.changeSize = this.changeSize.bind(this)
     this.update = this.update.bind(this)
     this.draw = this.draw.bind(this)
@@ -22,7 +24,7 @@ export default class {
       movie.anchor.y = 0.5
       movie.play()
       movie.animationSpeed = 0.1
-      stage.addChild(movie)
+      this.parent.stage.addChild(movie)
     }
 
     this.leftMovie = new PIXI.extras.MovieClip(assets.llamaLeftFrames)
@@ -46,7 +48,7 @@ export default class {
     }
   }
 
-  draw (stage, state) {
+  draw (state) {
     let movie
 
     this.rightMovie.position.y = -100

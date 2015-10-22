@@ -7,7 +7,8 @@ import {
   PROTECTION_TIME, GROUND_LEVEL, SPEED,
   JUMP_TIME, JUMP_SPEED, JUMP_ACCELERATION,
   SPIT_TIME, SLIDE_TIME,
-  FORWARD, JUMPING, SLIDDING, SPITTING
+  FORWARD, JUMPING, SLIDDING, SPITTING,
+  CREATE_FRAME, DESTROY_FRAME
 } from './consts'
 
 export default class {
@@ -17,6 +18,7 @@ export default class {
     this.animate = this.animate.bind(this)
     this.update = this.update.bind(this)
     this.draw = this.draw.bind(this)
+    this.reducer = this.reducer.bind(this)
 
     this.updateFramesPosition = this.updateFramesPosition.bind(this)
     this.createFrame = this.createFrame.bind(this)
@@ -67,7 +69,7 @@ export default class {
   update () {
     this.time += 1
 
-    const { up, down, right, left, space } = this.keys.getState()
+    const { up, down, right, space } = this.keys.getState()
 
     if (up && this.jumpTicks >= JUMP_TIME) {
       this.state = JUMPING
@@ -100,12 +102,8 @@ export default class {
     this.spitTicks++
     this.slideTicks++
 
-    if (space) {
+    if (space && !this.frames.length) {
       this.createFrame()
-    }
-
-    if (left) {
-      this.destroyFrame(0)
     }
 
     this.frames.forEach((frame) => frame.update(this.x, this.y, this.state))
@@ -155,9 +153,21 @@ export default class {
     }
   }
 
+  reducer (action) {
+    console.log('action', action)
+
+    switch (action.type) {
+      case CREATE_FRAME:
+        return this.createFrame()
+      case DESTROY_FRAME:
+        const index = this.frames.indexOf(action.frame)
+        return this.destroyFrame(index)
+    }
+  }
+
   createFrame () {
     if (this.canCreateFrame && this.frames.length < 6) {
-      this.frames.push(new Frame(this.frames.length))
+      this.frames.push(new Frame())
       this.updateFramesPosition()
       this.canCreateFrame = false
 

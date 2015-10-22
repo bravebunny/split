@@ -1,10 +1,12 @@
 import PIXI from 'pixi.js'
 import * as assets from './assets'
-import { GROUND_LEVEL, PLAYER_POSITION, SPEED } from './consts'
-import game from './index'
+import { GROUND_LEVEL, PLAYER_POSITION, SPEED, CREATE_FRAME } from './consts'
+import { dispatch } from './index'
 
 export default class {
-  constructor (stage, x, y, scale) {
+  constructor (parent, x, y, scale) {
+    this.parent = parent
+
     this.changeSize = this.changeSize.bind(this)
     this.update = this.update.bind(this)
     this.draw = this.draw.bind(this)
@@ -20,7 +22,7 @@ export default class {
     this.loverMovie.anchor.y = 0.5
     this.loverMovie.play()
     this.loverMovie.animationSpeed = 0.1
-    stage.addChild(this.loverMovie)
+    this.parent.stage.addChild(this.loverMovie)
   }
 
   update (x, y) {
@@ -29,15 +31,15 @@ export default class {
 
     if (!this.loved && this.x < PLAYER_POSITION) {
       this.loved = true
-      game.createFrame()
+      dispatch({ type: CREATE_FRAME })
+    }
+
+    if (this.x < 0 && !this.destroyed) {
+      this.destroy()
     }
   }
 
-  draw (stage, state) {
-    if (this.x < 0) {
-      this.destroy(stage)
-    }
-
+  draw () {
     if (this.destroyed) {
       return
     }
@@ -53,9 +55,9 @@ export default class {
     this.scale = scale
   }
 
-  destroy (stage) {
+  destroy () {
     this.destroyed = true
-    stage.removeChild(this.loverMovie)
+    this.parent.stage.removeChild(this.loverMovie)
     // this.sprite.destroy()
   }
 }

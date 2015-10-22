@@ -25,3 +25,11 @@ export const states = {
 }
 
 export const GROWTH_SPEED = 0.0025
+
+export const CREATE_FRAME = 'CREATE_FRAME'
+export const DESTROY_FRAME = 'DESTROY_FRAME'
+
+export const actions = {
+  CREATE_FRAME,
+  DESTROY_FRAME
+}

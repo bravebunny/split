@@ -1,9 +1,11 @@
 import PIXI from 'pixi.js'
-import { STONE_LEVEL, PLAYER_POSITION, JUMPING, SPEED } from './consts'
-import game from './index'
+import { STONE_LEVEL, PLAYER_POSITION, JUMPING, SPEED, DESTROY_FRAME } from './consts'
+import { dispatch } from './index'
 
 export default class {
-  constructor (stage, x, y, scale) {
+  constructor (parent, x, y, scale) {
+    this.parent = parent
+
     this.changeSize = this.changeSize.bind(this)
     this.update = this.update.bind(this)
     this.draw = this.draw.bind(this)
@@ -19,7 +21,7 @@ export default class {
     this.sprite.anchor.x = 0.5
     this.sprite.anchor.y = 0.5
 
-    stage.addChild(this.sprite)
+    this.parent.stage.addChild(this.sprite)
   }
 
   update (x, y, state) {
@@ -28,15 +30,15 @@ export default class {
 
     if (!this.killed && this.x < PLAYER_POSITION && this.x > PLAYER_POSITION - 100 && state !== JUMPING) {
       this.killed = true
-      game.destroyFrame(0)
+      dispatch({ type: DESTROY_FRAME, frame: this.parent })
+    }
+
+    if (this.x < 0 && !this.destroyed) {
+      this.destroy()
     }
   }
 
-  draw (stage, state) {
-    if (this.x < 0) {
-      this.destroy(stage)
-    }
-
+  draw () {
     if (this.destroyed) {
       return
     }
@@ -52,9 +54,9 @@ export default class {
     this.scale = scale
   }
 
-  destroy (stage) {
+  destroy () {
     this.destroyed = true
-    stage.removeChild(this.sprite)
+    this.parent.stage.removeChild(this.sprite)
     // this.sprite.destroy()
   }
 }

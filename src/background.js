@@ -1,7 +1,9 @@
 import PIXI from 'pixi.js'
 
 export default class {
-  constructor (stage, width, height) {
+  constructor (parent, width, height) {
+    this.parent = parent
+
     this.changeSize = this.changeSize.bind(this)
     this.update = this.update.bind(this)
     this.draw = this.draw.bind(this)
@@ -20,7 +22,7 @@ export default class {
       background.position.y = 0
       background.tilePosition.x = 0
       background.tilePosition.y = 0
-      stage.addChild(background)
+      this.parent.stage.addChild(background)
     }
 
     initBackground(this.backgroundFar)
