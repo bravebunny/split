@@ -27,12 +27,10 @@ export default class {
     this.background = new Background(this, 320, 240)
     this.player = new Player(this, startX, startY)
 
-    this.stonesInterval = random(100, 500)
-    this.loversInterval = random(100, 500)
+    this.stonesInterval = random(200, 500)
+    this.loversInterval = random(300, 500)
 
     this.entities = []
-    this.entities.push(new Lover(this, startX, startY, this.scale))
-    this.entities.push(new Stone(this, startX, startY, this.scale))
 
     this.renderer.view.style.position = 'absolute'
     this.renderer.view.style.top = '0px'
@@ -46,11 +44,11 @@ export default class {
     this.background.update(x)
 
     if (x % this.stonesInterval === 0) {
-      this.entities.push(new Stone(this, startX, startY, this.scale))
+      this.entities.push(new Stone(this, startX + (300 * this.scale), startY, this.scale))
     }
 
     if (x % this.loversInterval === 0) {
-      this.entities.push(new Lover(this, startX, startY, this.scale))
+      this.entities.push(new Lover(this, startX + (300 * this.scale), startY, this.scale))
     }
 
     this.player.update(x, y, state)
